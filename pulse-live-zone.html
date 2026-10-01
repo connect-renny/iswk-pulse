@@ -1,0 +1,1270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="PULSE Live Zone — a curated space for parent voice, conversations, polls and timely engagement at Indian School Al Wadi Al Kabir."
+    />
+    <meta name="author" content="" />
+    <title>PULSE Live Zone | PULSE</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+    <!-- Bootstrap Icon -->
+    <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="assets/css/swiper-bundle.css" rel="stylesheet" />
+    <link href="assets/css/aos.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css?v=20260929d" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ═══ Icon sprite ═══ -->
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <g id="i-megaphone">
+          <path d="M4 10.2v3.6a1.6 1.6 0 001.6 1.6h1.8l9.8 4.4V4.2L7.4 8.6H5.6A1.6 1.6 0 004 10.2z" />
+          <path d="M7.4 15.4v4a1.6 1.6 0 001.6 1.6h1a1.6 1.6 0 001.6-1.6v-2.2" />
+          <path d="M20 9.4a3.6 3.6 0 010 5.2" />
+        </g>
+        <g id="i-question-chat">
+          <path
+            d="M20.6 12.6c0 3.5-3.9 6.4-8.6 6.4a11 11 0 01-2.7-.3L4.2 21l1.4-3.9C4 15.9 3.4 14.3 3.4 12.6c0-3.5 3.9-6.4 8.6-6.4s8.6 2.9 8.6 6.4z"
+          />
+          <path d="M9.9 10.6a2.3 2.3 0 014.5.5c0 1.5-2.2 2.2-2.2 2.2" />
+          <path d="M12 16.1h.01" />
+        </g>
+        <g id="i-poll">
+          <path d="M3.6 20.4h16.8" />
+          <path d="M6.6 20.4V13M11 20.4V6.6M15.4 20.4v-9.6M19.8 20.4v-5.4" />
+        </g>
+        <g id="i-sprout">
+          <path d="M12 21v-8.2" />
+          <path d="M12 12.8C12 9.4 9.4 6.8 6 6.8c0 3.4 2.6 6 6 6z" />
+          <path d="M12 12.8c0-3.4 2.6-6 6-6 0 3.4-2.6 6-6 6z" />
+          <path d="M7.6 21h8.8" />
+        </g>
+        <g id="i-star">
+          <path
+            d="M12 3.2l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"
+          />
+        </g>
+        <g id="i-speak">
+          <rect x="9.2" y="2.8" width="5.6" height="10.4" rx="2.8" />
+          <path d="M5.6 11.4a6.4 6.4 0 0012.8 0" />
+          <path d="M12 17.8v3.4M8.8 21.2h6.4" />
+        </g>
+        <g id="i-ear">
+          <path
+            d="M7 9a5 5 0 0110 0c0 2.4-1.6 3.4-2.8 4.4-1 .9-1.2 1.9-1.2 2.9a2.6 2.6 0 01-5.2 0"
+          />
+          <path d="M10.4 9.2a1.8 1.8 0 013.4.8" />
+        </g>
+        <g id="i-community">
+          <circle cx="12" cy="6.4" r="2.6" />
+          <path d="M7.4 15a4.6 4.6 0 019.2 0" />
+          <circle cx="4.8" cy="10.4" r="2" />
+          <circle cx="19.2" cy="10.4" r="2" />
+          <path d="M2 18.4a3.4 3.4 0 015.3-2.8M22 18.4a3.4 3.4 0 00-5.3-2.8" />
+        </g>
+        <g id="i-bulb">
+          <path d="M9.4 17.6a6 6 0 115.2 0" />
+          <path d="M9.6 17.6h4.8M10.2 20.6h3.6" />
+        </g>
+        <g id="i-share">
+          <circle cx="18" cy="5.6" r="2.6" />
+          <circle cx="6" cy="12" r="2.6" />
+          <circle cx="18" cy="18.4" r="2.6" />
+          <path d="M8.3 10.8l7.4-3.9M8.3 13.2l7.4 3.9" />
+        </g>
+        <g id="i-link">
+          <path d="M10 13.4a3.6 3.6 0 005.4.4l2.6-2.6a3.6 3.6 0 00-5.1-5.1l-1.5 1.5" />
+          <path d="M14 10.6a3.6 3.6 0 00-5.4-.4L6 12.8a3.6 3.6 0 005.1 5.1l1.5-1.5" />
+        </g>
+        <g id="i-shield-heart">
+          <path d="M12 2.8l7 2.6v5.6c0 4.6-3 8.2-7 10.2-4-2-7-5.6-7-10.2V5.4z" />
+          <path d="M12 16.4l-2.6-2.5a1.8 1.8 0 012.6-2.5 1.8 1.8 0 012.6 2.5z" />
+        </g>
+        <g id="i-pulse">
+          <path d="M2.6 12.4h4l2-4.8 3.2 9.6 2.4-6 1.6 3.2h5.6" />
+        </g>
+        <g id="i-chat">
+          <path
+            d="M20.4 13.2c0 3.3-3.8 6-8.4 6a11 11 0 01-2.6-.3l-4.8 2 1.3-3.6c-1.5-1.1-2.3-2.5-2.3-4.1 0-3.3 3.8-6 8.4-6s8.4 2.7 8.4 6z"
+          />
+          <path d="M8.6 12.6h.01M12 12.6h.01M15.4 12.6h.01" />
+        </g>
+        <g id="i-refresh">
+          <path d="M20.4 12a8.4 8.4 0 01-14.6 5.7" />
+          <path d="M3.6 12a8.4 8.4 0 0114.6-5.7" />
+          <path d="M18.2 2.6v3.8h-3.8M5.8 21.4v-3.8h3.8" />
+        </g>
+        <g id="i-pen">
+          <path d="M15.6 4.6l3.8 3.8" />
+          <path d="M17 3.2a2 2 0 012.8 2.8L8.4 17.4 4 19l1.6-4.4z" />
+          <path d="M4 21h16" />
+        </g>
+        <g id="i-check">
+          <path d="M4.8 12.6l4.6 4.6L19.2 7.4" />
+        </g>
+        <g id="i-send">
+          <path d="M20.8 3.2L10.4 13.6" />
+          <path d="M20.8 3.2l-6.6 17.6-3.8-7.2-7.2-3.8z" />
+        </g>
+        <g id="i-lock">
+          <rect x="4.4" y="10.4" width="15.2" height="10.4" rx="2.4" />
+          <path d="M8.2 10.4V7.6a3.8 3.8 0 017.6 0v2.8" />
+          <path d="M12 14.6v2.2" />
+        </g>
+      </defs>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="header">
+      <div class="navbar-main">
+        <div class="header-inner">
+          <!-- Brand badge -->
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/pulse-logo.png" alt="PULSE" />
+          </a>
+
+          <!-- Primary navigation -->
+          <nav class="navbar-nav" id="primaryNav" aria-label="Primary">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a class="nav-link" href="our-parenting-journey.html">
+                  <span class="nav-icon">
+                    <img src="assets/images/nav-icon-01.png" alt="" />
+                  </span>
+                  <span class="nav-label">Our Parenting <br />Journey</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="parenting-across-every-stage.html">
+                  <span class="nav-icon">
+                    <img src="assets/images/nav-icon-02.png" alt="" />
+                  </span>
+                  <span class="nav-label"
+                    >Parenting <br />Across Every Stage</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="enrichment-resources.html">
+                  <span class="nav-icon">
+                    <img src="assets/images/nav-icon-03.png" alt="" />
+                  </span>
+                  <span class="nav-label"
+                    >Enrichment &amp; <br />Resources</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="parent-volunteer-programme.html">
+                  <span class="nav-icon">
+                    <img src="assets/images/nav-icon-04.png" alt="" />
+                  </span>
+                  <span class="nav-label"
+                    >Parent Volunteer <br />Programme</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="pulse-live-zone.html"
+                  aria-current="page"
+                >
+                  <span class="nav-icon">
+                    <img src="assets/images/nav-icon-05.png" alt="" />
+                  </span>
+                  <span class="nav-label">Pulse <br />Live ZOne</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Actions -->
+          <div class="header-actions">
+            <button
+              type="button"
+              class="btn-circle btn-circle-navy search-toggle"
+              aria-label="Search"
+              aria-controls="searchPanel"
+              aria-expanded="false"
+            >
+              <i class="bi bi-search" aria-hidden="true"></i>
+            </button>
+            <a
+              class="btn-circle btn-circle-gold"
+              href="index.html"
+              aria-label="Home"
+            >
+              <i class="bi bi-house-door-fill" aria-hidden="true"></i>
+            </a>
+            <button
+              type="button"
+              class="navbar-toggler"
+              aria-label="Toggle navigation"
+              aria-controls="primaryNav"
+              aria-expanded="false"
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══ Search ═══ -->
+        <div class="search-panel" id="searchPanel" hidden>
+          <div class="page-shell">
+            <form class="search-form" role="search" action="#" method="get">
+              <label class="visually-hidden" for="siteSearch"
+                >Search PULSE</label
+              >
+              <i class="bi bi-search search-icon" aria-hidden="true"></i>
+              <input
+                class="search-input"
+                id="siteSearch"
+                type="search"
+                name="q"
+                placeholder="Search PULSE&hellip;"
+                autocomplete="off"
+              />
+              <button type="submit" class="search-submit">Search</button>
+              <button
+                type="button"
+                class="search-close"
+                aria-label="Close search"
+              >
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ Mobile nav backdrop ═══ -->
+    <div class="nav-backdrop" hidden></div>
+
+    <main>
+      <!-- ═══ Hero banner ═══ -->
+      <section class="hero">
+        <div class="page-shell">
+          <div class="swiper swiper-banner">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <figure class="hero-slide">
+                  <img
+                    src="assets/images/hero-slider-live-zone.jpg"
+                    alt="Parents listening to a podcast, joining an online session and learning with their children and teachers, around a PULSE Live chat emblem"
+                  />
+                </figure>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Intro ═══ -->
+      <section class="live-intro" id="pulse-live-zone">
+        <div class="page-shell">
+          <div class="section-shell">
+            <button type="button" class="listen-btn" data-aos="fade-up">
+              <span class="listen-icon">
+                <i class="bi bi-volume-up-fill" aria-hidden="true"></i>
+              </span>
+              Listen
+            </button>
+
+            <p class="live-badge" data-aos="fade-up">
+              <span class="live-dot" aria-hidden="true"></span>
+              Live Zone
+            </p>
+
+            <h1 class="page-title" data-aos="fade-up">PULSE Live Zone</h1>
+
+            <p class="live-tagline" data-aos="fade-up">
+              Curated Conversations. Meaningful Voices. Shared Understanding.
+            </p>
+
+            <ul class="live-verbs" data-aos="fade-up">
+              <li>Listen.</li>
+              <li>Connect.</li>
+              <li>Reflect.</li>
+              <li>Respond.</li>
+            </ul>
+
+            <div class="prose" data-aos="fade-up">
+              <p class="live-lead">
+                The journey of education is enriched when schools and families
+                remain connected through meaningful conversations.
+              </p>
+              <p>
+                PULSE Live Zone is our dynamic space for parent voice, curated
+                conversations and timely engagement &mdash; bringing together
+                questions, reflections, perspectives and topics that are
+                relevant to our parent community.
+              </p>
+              <p>
+                Through carefully selected themes, polls, questions, responses
+                and conversations, this space keeps the home&ndash;school
+                partnership current, connected and purposeful.
+              </p>
+            </div>
+
+            <figure class="live-visual" data-aos="fade-up">
+              <img
+                src="assets/images/live-zone-visual.jpg"
+                alt="Indian School Al Wadi Al Kabir, surrounded by icons for conversation, listening, learning and community"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ What's live? ═══ -->
+      <section class="whats-live" id="whats-live">
+        <div class="page-shell">
+          <div class="section-shell">
+            <h2 class="section-heading" data-aos="fade-up">
+              What&rsquo;s Live?
+            </h2>
+            <p class="section-lead-copy" data-aos="fade-up">
+              From time to time, PULSE Live Zone may feature:
+            </p>
+
+            <ul class="live-grid" data-aos="fade-up">
+              <li class="live-card live-card-feature">
+                <span class="live-card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-megaphone"></use>
+                  </svg>
+                </span>
+                <h3 class="live-card-name">Parent Voice</h3>
+                <p>
+                  Selected parent perspectives, reflections and experiences that
+                  contribute to meaningful community conversations.
+                </p>
+              </li>
+
+              <li class="live-card">
+                <span class="live-card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-question-chat"></use>
+                  </svg>
+                </span>
+                <h3 class="live-card-name">You Ask. We Respond.</h3>
+                <p>
+                  Answers to questions and themes identified through parent
+                  interactions and engagement.
+                </p>
+              </li>
+
+              <li class="live-card">
+                <span class="live-card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-poll"></use>
+                  </svg>
+                </span>
+                <h3 class="live-card-name">PULSE Poll</h3>
+                <p>
+                  Quick, focused polls that invite parents to share their
+                  perspectives on relevant aspects of school and learning.
+                </p>
+              </li>
+
+              <li class="live-card">
+                <span class="live-card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-sprout"></use>
+                  </svg>
+                </span>
+                <h3 class="live-card-name">In Focus</h3>
+                <p>
+                  A particular topic, stage or aspect of the child&rsquo;s
+                  journey explored through a parent-friendly lens.
+                </p>
+              </li>
+
+              <li class="live-card">
+                <span class="live-card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-star"></use>
+                  </svg>
+                </span>
+                <h3 class="live-card-name">Community Highlights</h3>
+                <p>
+                  Moments of collaboration, participation and shared achievement
+                  from across our ISWK parent community.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ A space that listens with purpose ═══ -->
+      <section class="listens" id="a-space-that-listens">
+        <div class="page-shell">
+          <div class="section-shell">
+            <div class="listens-panel">
+              <h2 class="listens-title" data-aos="fade-up">
+                A Space That Listens <span>With Purpose</span>
+              </h2>
+
+              <p class="listens-text" data-aos="fade-up">
+                PULSE Live Zone is thoughtfully moderated and curated by the
+                school to ensure that every featured conversation is relevant,
+                constructive, respectful and aligned with the needs of our
+                students and families.
+              </p>
+
+              <p class="listens-emphasis" data-aos="fade-up">
+                The purpose is not simply to collect opinions. It is to create
+                opportunities for
+                <strong>understanding, reflection and meaningful engagement.</strong>
+              </p>
+
+              <ul class="flow-steps" data-aos="fade-up">
+                <li class="flow-step">
+                  <span class="flow-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-speak"></use>
+                    </svg>
+                  </span>
+                  Your Voice
+                </li>
+                <li class="flow-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 48 24">
+                    <path
+                      d="M2 12h40m0 0l-9-7m9 7l-9 7"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </li>
+                <li class="flow-step">
+                  <span class="flow-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-ear"></use>
+                    </svg>
+                  </span>
+                  Our Listening
+                </li>
+                <li class="flow-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 48 24">
+                    <path
+                      d="M2 12h40m0 0l-9-7m9 7l-9 7"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </li>
+                <li class="flow-step">
+                  <span class="flow-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-community"></use>
+                    </svg>
+                  </span>
+                  Shared Understanding
+                </li>
+              </ul>
+
+              <p class="hopes-intro" data-aos="fade-up">
+                Through this evolving space, we hope to:
+              </p>
+
+              <ul class="hopes-list" data-aos="fade-up">
+                <li>
+                  <span class="hopes-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-ear"></use>
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Listen</strong> to the perspectives of our parent
+                    community.
+                  </span>
+                </li>
+                <li>
+                  <span class="hopes-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-bulb"></use>
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Understand</strong> emerging questions, interests
+                    and needs.
+                  </span>
+                </li>
+                <li>
+                  <span class="hopes-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-share"></use>
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Share</strong> relevant information and perspectives.
+                  </span>
+                </li>
+                <li>
+                  <span class="hopes-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-link"></use>
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Connect</strong> families with the wider school
+                    community.
+                  </span>
+                </li>
+                <li>
+                  <span class="hopes-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-shield-heart"></use>
+                    </svg>
+                  </span>
+                  <span>
+                    <strong>Strengthen</strong> the partnership between home and
+                    school.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ A living conversation ═══ -->
+      <section class="living" id="a-living-conversation">
+        <div class="page-shell">
+          <div class="section-shell">
+            <h2 class="section-heading" data-aos="fade-up">
+              A Living Conversation
+            </h2>
+            <p class="section-lead-copy" data-aos="fade-up">
+              The content of PULSE Live Zone will evolve throughout the year,
+              reflecting the questions, themes, experiences and priorities that
+              emerge across our parent community.
+            </p>
+
+            <ul class="living-list" data-aos="fade-up">
+              <li>
+                <span class="living-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <use href="#i-chat"></use>
+                  </svg>
+                </span>
+                Some conversations may invite a quick response.
+              </li>
+              <li>
+                <span class="living-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <use href="#i-bulb"></use>
+                  </svg>
+                </span>
+                Some may offer a new perspective.
+              </li>
+              <li>
+                <span class="living-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <use href="#i-question-chat"></use>
+                  </svg>
+                </span>
+                Some may answer a question many parents are asking.
+              </li>
+              <li>
+                <span class="living-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <use href="#i-sprout"></use>
+                  </svg>
+                </span>
+                Some may simply give us an opportunity to pause and think.
+              </li>
+            </ul>
+
+            <p class="living-closing" data-aos="fade-up">
+              Because meaningful partnership is built
+              <strong>one conversation at a time.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Voices from our community (testimonials) ═══
+           Real parent compliments from the client's "PHOTOGRAPHS FOR THE
+           PARENT PAGE" Drive folder (the FS and PS "Compliments from
+           parents" docs, including four handwritten Parent Connect notes,
+           transcribed). Long messages are trimmed to excerpts marked with an
+           ellipsis. MS and SS sent no compliments yet. -->
+      <section class="voices" id="voices-from-our-community">
+        <div class="page-shell">
+          <div class="section-shell">
+            <p class="voices-eyebrow" data-aos="fade-up">
+              <span class="voices-eyebrow-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-speak"></use>
+                </svg>
+              </span>
+              Parent Voice
+            </p>
+
+            <h2 class="section-heading" data-aos="fade-up">
+              Voices from Our Community
+            </h2>
+
+            <p class="section-lead-copy" data-aos="fade-up">
+              Reflections shared by parents across our stages &mdash; in their
+              own words, and published only with their permission.
+            </p>
+
+            <div class="voices-slider" data-aos="fade-up">
+              <div class="swiper swiper-voices">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          Thank you for encouraging
+                          Harshika and preparing her
+                          so well. Your patience and
+                          hard work helped her shine
+                          among 11 competitors. Truly
+                          grateful for the positive
+                          learning environment you
+                          create for all the children.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">MJ</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Mohan &amp; Jayapradha</span>
+                          <span class="voice-role">Parents, Class I D &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          Thank you for hosting us
+                          today during the Connect
+                          Hour. We appreciate the
+                          opportunity to engage and
+                          share our thoughts.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">SP</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Sanchit R Poonacha</span>
+                          <span class="voice-role">Parent, Class III F &middot; Preparatory Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          It was a wonderful session.
+                          This will help to connect
+                          the parents and teachers. I
+                          am happy that my kid is
+                          studying in a wonderful
+                          place.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">PC</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">A Parent</span>
+                          <span class="voice-role">Parent Connect, Class II F &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          I would like to express my
+                          sincere appreciation for the
+                          wonderful Mother&rsquo;s Day
+                          celebration&hellip; Such
+                          events not only create
+                          joyful memories but also
+                          help children understand the
+                          importance of love, respect,
+                          and gratitude towards their
+                          mothers.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">NF</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Nazia Fatma</span>
+                          <span class="voice-role">Shifa&rsquo;s mother, Class II F &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          Today&rsquo;s meeting is
+                          helpful to mingle with
+                          teachers and parents
+                          non-academically. It&rsquo;s
+                          always better to share
+                          thoughts.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">DP</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Dileswari Pradhan</span>
+                          <span class="voice-role">Parent, Class V B &middot; Preparatory Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          It&rsquo;s a very
+                          interactive session. Feeling
+                          good to share my thoughts.
+                          Looking forward to the next
+                          session. Thank you.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">VK</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Mrs. Vrushali Kharbade</span>
+                          <span class="voice-role">Parent Connect, Class II F &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          It was an immense pleasure
+                          for Garvit, Vishal and
+                          myself to be part of the
+                          beautiful event&hellip;
+                          after all the research done
+                          to present Arabic dishes for
+                          the event, we have added new
+                          items to our home menu.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">YD</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Yashica Dixit</span>
+                          <span class="voice-role">Parent, Class II J &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          It was a very thoughtful and
+                          meaningful initiative by the
+                          school.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">TP</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Trupti Pawar</span>
+                          <span class="voice-role">Parent, Class III H &middot; Preparatory Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          The effort and heart put
+                          into the event were evident
+                          in every detail&hellip;
+                          Programs like these not only
+                          create lasting memories but
+                          also reinforce the strong
+                          bond between the teachers
+                          and parents.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">AM</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Amrita</span>
+                          <span class="voice-role">Parent, Class II D &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          It was a very good and
+                          helpful session regarding
+                          the kid and school. I felt
+                          it very helpful and
+                          encouraging. Such
+                          conversations should be
+                          there on a regular basis.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">SW</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Sawansh&rsquo;s Parent</span>
+                          <span class="voice-role">Parent Connect, Class II F &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          Thank you all for being so
+                          patient and understanding.
+                          Your approach and care for
+                          Garvit means a lot to us as
+                          parents. He is blessed to be
+                          under the beautiful
+                          team&rsquo;s guidance.
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">YD</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">Yashica Vishal Dixit</span>
+                          <span class="voice-role">Parent, Class II J &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="swiper-slide">
+                    <figure class="voice-card">
+                      <span class="voice-mark" aria-hidden="true">
+                        <i class="bi bi-quote"></i>
+                      </span>
+                      <blockquote class="voice-quote">
+                        <p>
+                          Today&rsquo;s session was
+                          very interactive and
+                          helpful. Thanks for the
+                          arrangement and best wishes
+                          to all students &amp; the
+                          teachers! Thank you
+                          ma&rsquo;am for all that you
+                          do!
+                        </p>
+                      </blockquote>
+                      <figcaption class="voice-by">
+                        <span class="voice-avatar" aria-hidden="true">PC</span>
+                        <span class="voice-meta">
+                          <span class="voice-name">A Parent</span>
+                          <span class="voice-role">Parent Connect, Class II F &middot; Foundation Stage</span>
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+
+              <div class="voices-controls">
+                <button
+                  type="button"
+                  class="voices-arrow voices-prev"
+                  aria-label="Previous testimonials"
+                >
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                </button>
+
+                <div class="voices-pagination"></div>
+
+                <button
+                  type="button"
+                  class="voices-arrow voices-next"
+                  aria-label="Next testimonials"
+                >
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Share your feedback ═══
+           The form is front-end only: no endpoint is wired yet, so the submit
+           handler in main.js validates and shows a confirmation. Point its
+           `action` at the real endpoint (or a Google Form) before launch. -->
+      <section class="feedback" id="share-your-feedback">
+        <div class="page-shell">
+          <div class="section-shell">
+            <div class="feedback-panel">
+              <div class="feedback-intro" data-aos="fade-up">
+                <span class="feedback-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-pen"></use>
+                  </svg>
+                </span>
+
+                <h2 class="feedback-title">Share Your Feedback</h2>
+
+                <p class="feedback-text">
+                  A question, a reflection, a suggestion or a word of
+                  appreciation &mdash; whatever is on your mind, this is where
+                  it reaches us.
+                </p>
+
+                <ul class="feedback-points">
+                  <li>
+                    <span class="feedback-tick">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="#i-check"></use>
+                      </svg>
+                    </span>
+                    <span>Every message is read by the PULSE team.</span>
+                  </li>
+                  <li>
+                    <span class="feedback-tick">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="#i-check"></use>
+                      </svg>
+                    </span>
+                    <span>
+                      Recurring themes shape
+                      <strong>You Ask. We Respond.</strong>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="feedback-tick">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="#i-check"></use>
+                      </svg>
+                    </span>
+                    <span>
+                      Selected reflections may feature in
+                      <strong>Parent Voice.</strong>
+                    </span>
+                  </li>
+                </ul>
+
+                <p class="feedback-privacy">
+                  <span class="feedback-privacy-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-lock"></use>
+                    </svg>
+                  </span>
+                  <span>
+                    Nothing you write is published without your permission, and
+                    you can ask us to withdraw it at any time.
+                  </span>
+                </p>
+              </div>
+
+              <form
+                class="feedback-form"
+                action="#"
+                method="post"
+                novalidate
+                data-aos="fade-up"
+              >
+                <fieldset class="fb-topic">
+                  <legend class="fb-legend">
+                    What would you like to share?
+                  </legend>
+                  <div class="fb-chips">
+                    <label class="fb-chip">
+                      <input
+                        type="radio"
+                        name="topic"
+                        value="feedback"
+                        checked
+                      />
+                      <span>Feedback</span>
+                    </label>
+                    <label class="fb-chip">
+                      <input type="radio" name="topic" value="question" />
+                      <span>A question</span>
+                    </label>
+                    <label class="fb-chip">
+                      <input type="radio" name="topic" value="suggestion" />
+                      <span>A suggestion</span>
+                    </label>
+                    <label class="fb-chip">
+                      <input type="radio" name="topic" value="appreciation" />
+                      <span>Appreciation</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="fb-row">
+                  <p class="fb-field">
+                    <label for="fb-name">
+                      Name <span class="fb-optional">(optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="fb-name"
+                      name="name"
+                      autocomplete="name"
+                      placeholder="Your name"
+                    />
+                  </p>
+
+                  <p class="fb-field">
+                    <label for="fb-email">
+                      Email
+                      <span class="fb-optional">(optional, for a reply)</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="fb-email"
+                      name="email"
+                      autocomplete="email"
+                      placeholder="you@example.com"
+                    />
+                  </p>
+                </div>
+
+                <p class="fb-field">
+                  <label for="fb-stage">Your child&rsquo;s stage</label>
+                  <select id="fb-stage" name="stage">
+                    <option value="">Select a stage</option>
+                    <option value="foundation">
+                      Foundation Stage (KG 1 &ndash; Grade 2)
+                    </option>
+                    <option value="preparatory">
+                      Preparatory Stage (Grades 3 &ndash; 5)
+                    </option>
+                    <option value="middle">
+                      Middle Stage (Grades 6 &ndash; 8)
+                    </option>
+                    <option value="secondary">
+                      Secondary Stage (Grades 9 &ndash; 10)
+                    </option>
+                    <option value="senior-secondary">
+                      Senior Secondary Stage (Grades 11 &ndash; 12)
+                    </option>
+                    <option value="multiple">More than one stage</option>
+                  </select>
+                </p>
+
+                <p class="fb-field">
+                  <label for="fb-message">
+                    Your message <span class="fb-required">*</span>
+                  </label>
+                  <textarea
+                    id="fb-message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Tell us what is on your pulse&hellip;"
+                  ></textarea>
+                </p>
+
+                <p class="fb-consent">
+                  <input type="checkbox" id="fb-consent" name="consent" />
+                  <label for="fb-consent">
+                    You may share my words &mdash; with my first name and stage
+                    only &mdash; in PULSE Live Zone.
+                  </label>
+                </p>
+
+                <button type="submit" class="fb-submit">
+                  Send to PULSE
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-send"></use>
+                  </svg>
+                </button>
+
+                <p class="fb-status" role="status" aria-live="polite" hidden></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ What's on your pulse? ═══ -->
+      <section class="on-your-pulse" id="whats-on-your-pulse">
+        <div class="page-shell">
+          <div class="section-shell">
+            <div class="pulse-panel">
+              <span class="pulse-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-pulse"></use>
+                </svg>
+              </span>
+
+              <h2 class="pulse-title" data-aos="fade-up">
+                What&rsquo;s On Your Pulse?
+              </h2>
+
+              <p class="pulse-text" data-aos="fade-up">
+                Stay connected to the conversations, insights and updates that
+                matter to your family and your child&rsquo;s learning journey.
+              </p>
+
+              <p class="pulse-note" data-aos="fade-up">
+                <span class="pulse-note-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <use href="#i-refresh"></use>
+                  </svg>
+                </span>
+                Check back regularly. New conversations and features will be
+                added throughout the year.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Closing signature ═══ -->
+      <section class="live-closing" id="live-zone-signature">
+        <div class="page-shell">
+          <div class="section-shell">
+            <h2 class="sign-title" data-aos="fade-up">PULSE Live Zone</h2>
+            <p class="sign-text" data-aos="fade-up">
+              A curated space for parent voice and meaningful engagement.
+            </p>
+            <p class="sign-verbs" data-aos="fade-up">
+              Listen. Connect. Reflect. Respond.
+            </p>
+            <p class="sign-strap" data-aos="fade-up">
+              One Partnership. One Purpose. <strong>One ISWK Family.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+      <div class="page-shell">
+        <div class="section-shell footer-inner">
+          <a class="footer-brand" href="index.html">
+            <img
+              src="assets/images/iswk-pulse-logo.png"
+              alt="Indian School Al Wadi Al Kabir"
+            />
+          </a>
+          <p class="footer-copy">
+            Copyright &copy; 2026-27 Indian School Al Wadi Al Kabir. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══ Ask the Counsellor ═══ -->
+    <!-- Hidden until the client confirms where this should link.
+    <a class="counsellor-tab" href="#ask-the-counsellor">
+      <span class="counsellor-badge">
+        <i class="bi bi-question-lg" aria-hidden="true"></i>
+      </span>
+      <span class="counsellor-label">Ask the Counsellor</span>
+    </a>
+    -->
+
+    <!-- ═══ Scroll to top ═══ -->
+    <button id="return-top" class="return-top" aria-label="Back to top">
+      <span><img src="assets/images/up-icon.svg" alt="" /></span>
+    </button>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper slider -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <!-- Custom scroll -->
+    <script src="assets/js/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js?v=20260929"></script>
+    <script>
+      // AOS animation
+      AOS.init();
+    </script>
+  </body>
+</html>

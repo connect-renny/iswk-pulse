@@ -1,0 +1,192 @@
+// ─── Circular header actions ──────────────────────────────────────────────────
+.btn-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 53px;
+  width: 53px;
+  height: 53px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  @include transEase;
+
+  &:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-circle-navy {
+  background: var(--color-navy);
+
+  &:hover {
+    background: var(--color-navy-deep);
+  }
+}
+
+.btn-circle-gold {
+  background: var(--color-amber);
+
+  &:hover {
+    background: var(--color-gold);
+  }
+}
+
+// ─── Ask the Counsellor tab ───────────────────────────────────────────────────
+.counsellor-tab {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  min-height: 298px;
+  padding: 24px 0;
+  background: var(--color-navy);
+  border-radius: 16px 0 0 16px;
+  color: var(--white);
+  transform: translateY(-50%);
+  z-index: 90;
+  @include transEase(background);
+
+  &:hover {
+    background: var(--color-navy-deep);
+    color: var(--white);
+  }
+
+  .counsellor-label {
+    font-size: 16px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .counsellor-badge {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border: 2px solid var(--color-amber);
+    border-radius: 50%;
+    color: var(--color-amber);
+    font-size: 18px;
+    line-height: 1;
+    transform: translateY(-50%);
+  }
+}
+
+// ─── Scroll to top ────────────────────────────────────────────────────────────
+.return-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: var(--color-brand);
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  opacity: 0;
+  cursor: pointer;
+  @include transEase;
+  z-index: 10;
+
+  img {
+    position: relative;
+    width: 20px;
+    animation: upBounce 2s infinite;
+  }
+
+  &.visible {
+    display: block;
+  }
+
+  &:hover span img {
+    top: 5px;
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+// The vertical tab needs ~72px of clear right-hand edge. Above 1400px the
+// 1320px content shell leaves that free; below it the shell fills the viewport
+// and body copy runs underneath the tab (measured: 15 colliding text runs at
+// 768px). So the tab becomes a bottom-right pill, stacked above .return-top.
+@media (max-width: 1399px) {
+  .counsellor-tab {
+    top: auto;
+    bottom: 78px;
+    right: 16px;
+    gap: 10px;
+    width: auto;
+    min-height: 0;
+    padding: 11px 22px 11px 14px;
+    border-radius: 999px;
+    transform: none;
+    box-shadow: 0 10px 26px rgba(5, 39, 84, 0.28);
+
+    .counsellor-label {
+      font-size: 15px;
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+
+    .counsellor-badge {
+      position: static;
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .btn-circle {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  // no room for the wording beside a thumb-sized target, so the pill closes
+  // down to its badge; the label stays for screen readers
+  .counsellor-tab {
+    width: 54px;
+    height: 54px;
+    padding: 0;
+
+    .counsellor-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+
+    .counsellor-badge {
+      width: 34px;
+      height: 34px;
+      font-size: 17px;
+    }
+  }
+}

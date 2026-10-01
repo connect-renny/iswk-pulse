@@ -1,0 +1,482 @@
+// ─── Header shell ─────────────────────────────────────────────────────────────
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  // above .navbar-nav so the toggler stays reachable while the drawer is open
+  z-index: 120;
+}
+
+.navbar-main {
+  position: relative;
+  background: var(--color-bg);
+  @include transEase(box-shadow);
+
+  &.navbar-fixed {
+    box-shadow: rgba(5, 39, 84, 0.14) 0 2px 14px 0;
+  }
+}
+
+.header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 113px;
+  padding-block: 19px 0;
+  padding-inline: 396px 96px;
+}
+
+// ─── Brand badge — white pill that drops below the bar ────────────────────────
+.navbar-brand {
+  position: absolute;
+  top: 0;
+  left: 104px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 260px;
+  height: 246px;
+  padding-top: 12px;
+  background: var(--color-bg);
+  border-radius: 0 0 50% 50%;
+  // pulse-logo.png is an opaque white square, so its corners would otherwise
+  // sit outside the curve. The mark itself clears the ellipse at every size.
+  overflow: hidden;
+  // soft halo from the comp: ~3.5% peak a few px out, gone by ~40px
+  box-shadow: 0 4px 70px rgba(0, 0, 0, 0.09);
+  z-index: 2;
+  transition: width var(--transition-duration) ease-out,
+    height var(--transition-duration) ease-out,
+    padding-top var(--transition-duration) ease-out;
+
+  img {
+    width: 205px;
+    max-width: 100%;
+    height: auto;
+    transition: width var(--transition-duration) ease-out;
+  }
+}
+
+// ─── Scrolled state — badge shrinks so it stops dominating the page ───────────
+.navbar-fixed {
+  .navbar-brand {
+    width: 182px;
+    height: 172px;
+    padding-top: 8px;
+
+    img {
+      width: 143px;
+    }
+  }
+
+  // pull the nav back in as the badge narrows
+  .header-inner {
+    padding-inline-start: 318px;
+  }
+}
+
+// ─── Search / home actions ────────────────────────────────────────────────────
+.header-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  flex-shrink: 0;
+  // .navbar-nav is a sibling inside .header, so the close control has to
+  // outrank the open drawer here, not just on the header as a whole
+  z-index: 110;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1849px) {
+  .header-inner {
+    min-height: 100px;
+    padding-block: 15px 0;
+    padding-inline: 320px 48px;
+  }
+
+  .navbar-brand {
+    left: 60px;
+    width: 220px;
+    height: 208px;
+    padding-top: 10px;
+
+    img {
+      width: 168px;
+    }
+  }
+
+  .navbar-fixed {
+    .navbar-brand {
+      width: 154px;
+      height: 146px;
+      padding-top: 10px;
+
+      img {
+        width: 118px;
+      }
+    }
+
+    .header-inner {
+      padding-inline-start: 254px;
+    }
+  }
+}
+
+@media (max-width: 1509px) {
+  .header-inner {
+    min-height: 92px;
+    padding-block: 11px 0;
+    padding-inline: 268px 32px;
+    gap: 16px;
+  }
+
+  .navbar-brand {
+    left: 32px;
+    width: 200px;
+    height: 190px;
+    padding-top: 8px;
+
+    img {
+      width: 152px;
+    }
+  }
+
+  .navbar-fixed {
+    .navbar-brand {
+      width: 140px;
+      height: 133px;
+      padding-top: 8px;
+
+      img {
+        width: 106px;
+      }
+    }
+
+    .header-inner {
+      padding-inline-start: 208px;
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .header-inner {
+    justify-content: flex-end;
+    min-height: 86px;
+    padding-block: 0;
+    padding-inline: 190px 24px;
+  }
+
+  .navbar-brand {
+    left: 20px;
+    width: 150px;
+    height: 142px;
+    padding-top: 6px;
+
+    img {
+      width: 114px;
+    }
+  }
+
+  .navbar-fixed {
+    .navbar-brand {
+      width: 112px;
+      height: 106px;
+      padding-top: 6px;
+
+      img {
+        width: 85px;
+      }
+    }
+
+    .header-inner {
+      padding-inline-start: 152px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .header-inner {
+    min-height: 74px;
+    padding-inline: 128px 16px;
+    gap: 12px;
+  }
+
+  .navbar-brand {
+    left: 14px;
+    width: 104px;
+    height: 100px;
+    padding-top: 4px;
+
+    img {
+      width: 79px;
+    }
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .navbar-fixed {
+    .navbar-brand {
+      width: 82px;
+      height: 79px;
+      padding-top: 4px;
+
+      img {
+        width: 62px;
+      }
+    }
+
+    .header-inner {
+      padding-inline-start: 106px;
+    }
+  }
+}
+
+// ─── Search panel ─────────────────────────────────────────────────────────────
+// Opens in three layers: the panel's height eases down (0fr → 1fr grid row),
+// the pill grows leftwards out of the search button, then its contents fade
+// up one after another. Closing runs faster and without the stagger.
+$search-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$search-ease-in: cubic-bezier(0.55, 0, 0.75, 0.2);
+
+.search-panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: 0fr;
+  background: var(--color-bg);
+  border-top: 1px solid transparent;
+  box-shadow: rgba(5, 39, 84, 0) 0 12px 20px -12px;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.28s $search-ease-in,
+    opacity 0.22s ease 0.06s,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+  z-index: 1;
+
+  > .page-shell {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  &.is-open {
+    grid-template-rows: 1fr;
+    border-top-color: var(--color-border);
+    box-shadow: rgba(5, 39, 84, 0.12) 0 12px 20px -12px;
+    opacity: 1;
+    transition:
+      grid-template-rows 0.45s $search-ease-out,
+      opacity 0.3s ease,
+      border-color 0.45s ease,
+      box-shadow 0.45s ease;
+  }
+}
+
+// right-aligned so the brand badge, which hangs below the bar, stays clear
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 720px;
+  margin: 22px 0 22px auto;
+  padding: 0 12px 0 46px;
+  border: 1px solid var(--color-border);
+  border-radius: 40px;
+  opacity: 0;
+  transform: translateY(-6px) scaleX(0.9);
+  transform-origin: right center;
+  transition:
+    transform 0.25s $search-ease-in,
+    opacity 0.2s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  > * {
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .is-open & {
+    opacity: 1;
+    transform: none;
+    transition:
+      transform 0.5s $search-ease-out 0.08s,
+      opacity 0.35s ease 0.08s,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    > * {
+      opacity: 1;
+      transform: none;
+      transition:
+        opacity 0.35s ease,
+        transform 0.45s $search-ease-out;
+    }
+
+    // stagger: icon, input, submit, close
+    @for $i from 1 through 5 {
+      > :nth-child(#{$i}) {
+        transition-delay: #{0.16s + ($i - 1) * 0.05s};
+      }
+    }
+  }
+
+  &:focus-within {
+    border-color: var(--color-navy);
+    box-shadow: 0 0 0 4px rgba(5, 39, 84, 0.07);
+  }
+}
+
+// the toggle reads as "on" while the panel is open
+.search-toggle {
+  i {
+    display: inline-block;
+    transition: transform 0.45s $search-ease-out;
+  }
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.45s $search-ease-out;
+
+  &[aria-expanded="true"] {
+    background: var(--color-navy-deep);
+    box-shadow: 0 0 0 5px rgba(5, 39, 84, 0.14);
+
+    i {
+      transform: rotate(90deg) scale(0.9);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-panel,
+  .search-panel.is-open,
+  .search-form,
+  .is-open .search-form,
+  .search-form > *,
+  .is-open .search-form > *,
+  .search-toggle i {
+    transform: none !important;
+    transition-property: opacity !important;
+    transition-delay: 0s !important;
+  }
+
+  .search-panel {
+    grid-template-rows: 1fr;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  color: var(--color-navy);
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-navy);
+  font-family: inherit;
+  font-size: 16px;
+
+  &::placeholder {
+    color: var(--color-navy);
+    opacity: 0.45;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // the browser's own clear affordance duplicates .search-close
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+}
+
+.search-submit {
+  flex: 0 0 auto;
+  padding: 9px 22px;
+  border: 0;
+  border-radius: 40px;
+  background: var(--color-navy);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  @include transEase(background);
+
+  &:hover {
+    background: var(--color-amber);
+  }
+}
+
+.search-close {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-navy);
+  font-size: 14px;
+  cursor: pointer;
+  @include transEase(background);
+
+  &:hover {
+    background: rgba(5, 39, 84, 0.08);
+  }
+}
+
+@media (max-width: 991px) {
+  .search-form {
+    // keep clear of the smaller badge, which still overhangs the bar
+    max-width: calc(100% - 170px);
+  }
+}
+
+@media (max-width: 575px) {
+  .search-form {
+    margin-block: 16px;
+    max-width: calc(100% - 118px);
+    gap: 6px;
+    padding: 0 8px 0 38px;
+  }
+
+  .search-icon {
+    left: 14px;
+  }
+
+  .search-input {
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .search-submit {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .search-close {
+    width: 28px;
+    height: 28px;
+  }
+}

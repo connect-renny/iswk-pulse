@@ -1,0 +1,1864 @@
+// ─── Inner page: The role of parenting in education ──────────────────────────
+.page-intro {
+  padding: 76px 0 90px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+// ─── Pull quote ───────────────────────────────────────────────────────────────
+.quote-block {
+  margin: 34px 0 0;
+}
+
+.quote-avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.quote-text {
+  margin: 16px 0 0;
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.quote-author {
+  margin: 8px 0 0;
+  font-size: 17px;
+}
+
+// ─── Body copy ────────────────────────────────────────────────────────────────
+.prose {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.6;
+  hyphens: auto;
+
+  p {
+    margin: 0 0 24px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.prose-emphasis {
+  font-weight: var(--fw-semibold);
+}
+
+// ─── Photo + findings list ────────────────────────────────────────────────────
+.study-block {
+  display: flex;
+  align-items: center;
+  gap: 76px;
+  margin: 44px 0 60px;
+  text-align: left;
+}
+
+.study-media {
+  flex: 0 0 550px;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 550 / 300;
+    object-fit: cover;
+  }
+}
+
+.study-list {
+  min-width: 0;
+
+  li {
+    position: relative;
+    padding-left: 37px;
+    font-size: 19px;
+    font-weight: var(--fw-semibold);
+    line-height: 1.5;
+
+    // sits on the cap height rather than the line box, as in the comp
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.42em;
+      left: 0;
+      width: 13px;
+      height: 13px;
+      background: #0d8b80;
+      border-radius: 50%;
+    }
+
+    + li {
+      margin-top: 8px;
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .page-title {
+    font-size: 40px;
+  }
+
+  .study-block {
+    gap: 48px;
+  }
+
+  .study-media {
+    flex-basis: 440px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .page-intro {
+    padding: 56px 0 68px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .quote-text {
+    font-size: 19px;
+  }
+
+  .prose {
+    font-size: 17px;
+  }
+
+  .study-block {
+    gap: 36px;
+    margin: 36px 0 48px;
+  }
+
+  .study-media {
+    flex-basis: 360px;
+  }
+
+  .study-list li {
+    padding-left: 30px;
+    font-size: 17px;
+
+    &::before {
+      width: 11px;
+      height: 11px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .study-block {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .study-media {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .page-intro {
+    padding: 36px 0 48px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .quote-block {
+    margin-top: 24px;
+  }
+
+  .quote-avatar {
+    width: 54px;
+    height: 54px;
+  }
+
+  .quote-text {
+    font-size: 16px;
+  }
+
+  .quote-author {
+    font-size: 14px;
+  }
+
+  .prose {
+    font-size: 15px;
+
+    p {
+      margin-bottom: 18px;
+    }
+  }
+
+  .study-block {
+    margin: 28px 0 34px;
+  }
+
+  .study-list li {
+    font-size: 15px;
+
+    + li {
+      margin-top: 6px;
+    }
+  }
+}
+
+// ─── Sometimes, the smallest moments ─────────────────────────────────────────
+$moment-colors: #82b3de, #ff6fa5, #c8df6a, #c594d5, #62cdc5, #ffc94c;
+
+.moments {
+  padding: 0 0 90px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.moments-title {
+  margin: 0;
+  font-size: 46px;
+  font-weight: var(--fw-bold);
+  line-height: 1.05;
+  color: #115a8c;
+
+  b {
+    font-weight: inherit;
+    color: var(--black);
+  }
+}
+
+.moments-script,
+.moments-line {
+  display: block;
+}
+
+.moments-script {
+  margin-bottom: 6px;
+  font-family: "Chopin Script", cursive;
+  // Chopin Script runs far narrower than the fallback stack; 57px puts
+  // "Sometimes," on the comp's 211px width
+  font-size: 57px;
+  font-weight: var(--fw-normal);
+  line-height: 1.2;
+  color: var(--black);
+}
+
+.text-blue {
+  color: #115a8c;
+}
+
+// ─── Moment cards ─────────────────────────────────────────────────────────────
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 230px);
+  justify-content: center;
+  gap: 40px 105px;
+  margin-top: 55px;
+  text-align: left;
+}
+
+.moment-media {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 230 / 135;
+    object-fit: cover;
+  }
+}
+
+.moment-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  line-height: 1.2;
+  color: #22639f;
+}
+
+.moment-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 16px;
+}
+
+@each $color in $moment-colors {
+  .moment-card:nth-child(#{index($moment-colors, $color)}) .moment-icon {
+    background: $color;
+  }
+}
+
+.moments-statement {
+  margin: 81px 0 0;
+  font-size: 24px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+}
+
+.moments .prose {
+  margin-top: 34px;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .moments-title {
+    font-size: 40px;
+  }
+
+  .moments-script {
+    font-size: 49px;
+  }
+
+  .moments-grid {
+    gap: 36px 70px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .moments {
+    padding-bottom: 68px;
+  }
+
+  .moments-title {
+    font-size: 32px;
+  }
+
+  .moments-script {
+    font-size: 41px;
+  }
+
+  .moments-grid {
+    grid-template-columns: repeat(3, minmax(0, 230px));
+    gap: 32px 40px;
+    margin-top: 44px;
+  }
+
+  .moment-label {
+    font-size: 15px;
+  }
+
+  .moments-statement {
+    margin-top: 56px;
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 767px) {
+  .moments-grid {
+    grid-template-columns: repeat(2, minmax(0, 230px));
+  }
+}
+
+@media (max-width: 575px) {
+  .moments {
+    padding-bottom: 48px;
+  }
+
+  .moments-title {
+    font-size: 24px;
+  }
+
+  .moments-script {
+    font-size: 33px;
+  }
+
+  .moments-grid {
+    grid-template-columns: minmax(0, 260px);
+    gap: 28px;
+    margin-top: 32px;
+  }
+
+  .moment-icon {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .moments-statement {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+}
+
+// ─── Key Features of PULSE ───────────────────────────────────────────────────
+$glance-colors: (
+  (#dd5d1c, #c22009),
+  (#ec7c16, #d84108),
+  (#f6af19, #e97305),
+  (#aab152, #6e7e1b),
+  (#5cb48e, #1f804b),
+  (#4293b0, #22688c),
+  (#548de4, #2a4a9f)
+);
+
+.features {
+  padding: 30px 0 0;
+}
+
+.features-panel {
+  padding: 100px 40px 145px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.features-title,
+.glance-title {
+  margin: 0;
+  font-size: 44px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.features-subtitle {
+  margin: 14px 0 0;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+// ─── Carousel ─────────────────────────────────────────────────────────────────
+.features-slider {
+  position: relative;
+  margin-top: 76px;
+}
+
+.swiper-features {
+  overflow: hidden;
+}
+
+.feature-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 400px;
+  padding: 26px 24px 62px;
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+
+  .feature-shot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    transition: transform 0.7s ease;
+  }
+
+  // permanent scrim so the title stays legible over any crop
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(5, 39, 84, 0) 35%,
+      rgba(5, 39, 84, 0.78) 100%
+    );
+    z-index: -1;
+  }
+
+  // orange reveal, faded in on hover
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(234, 143, 28, 0.94) 0%,
+      rgba(131, 77, 15, 0.94) 100%
+    );
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.45s ease;
+  }
+}
+
+.feature-body {
+  transition: transform 0.45s ease;
+}
+
+.feature-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.25;
+}
+
+// max-height rather than line-clamp, so the reveal can animate
+.feature-text {
+  max-height: 44px; // two lines at 15px / 1.45
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+
+.feature-card:hover,
+.feature-card.is-open {
+  .feature-shot {
+    transform: scale(1.08);
+  }
+
+  &::after {
+    opacity: 1;
+  }
+
+  .feature-body {
+    transform: translateY(-4px);
+  }
+
+  .feature-text {
+    max-height: 280px;
+  }
+
+  .feature-toggle i {
+    transform: rotate(-90deg);
+  }
+}
+
+.feature-toggle {
+  position: absolute;
+  right: 15px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fe9516;
+  color: var(--white);
+  font-size: 12px;
+  cursor: pointer;
+  @include transEase;
+
+  &:hover {
+    background: #e8850c;
+  }
+
+  i {
+    @include transEase(transform);
+  }
+}
+
+.features-arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  @include transEase(opacity);
+  z-index: 2;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.25;
+    cursor: default;
+  }
+}
+
+.features-prev {
+  left: -54px;
+}
+
+.features-next {
+  right: -54px;
+}
+
+// below this the shell fills the panel, so there is no room outside the
+// slider; overlay the arrows on its edge rather than push them off-screen
+@media (max-width: 1599px) {
+  .features-prev {
+    left: 2px;
+  }
+
+  .features-next {
+    right: 2px;
+  }
+}
+
+.features-pagination {
+  margin-top: 30px;
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 7px !important;
+    background: var(--white);
+    opacity: 0.4;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+}
+
+// ─── PULSE at a glance ────────────────────────────────────────────────────────
+.glance-title {
+  margin-top: 136px;
+}
+
+// 7 slots of 172px across the 1320 shell; each diamond overflows its slot.
+// aspect-ratio gives the row a real height so the % offsets below resolve.
+.glance-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 1320 / 470; // 290 diagonal + 180 row offset
+  margin-top: 51px;
+  // the rotated diamonds feed scrollable overflow to the document otherwise
+  overflow: hidden;
+}
+
+.glance-item {
+  position: relative;
+  flex: 0 0 13.0303%; // 172 / 1320
+}
+
+// 205px side renders a 290px diagonal once rotated; rotation overhangs the
+// unrotated box by 0.2071 x side, so the box is nudged down to compensate
+.glance-diamond {
+  position: absolute;
+  top: 9.04%; // 42.5 / 470
+  left: 50%;
+  width: 119.2%; // 205 / 172
+  aspect-ratio: 1;
+  // comp blunts each apex by ~8px, i.e. ~20px on the 205px square
+  border-radius: 9.8%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.glance-item:nth-child(even) .glance-diamond {
+  top: 47.34%; // (180 + 42.5) / 470
+}
+
+@each $pair in $glance-colors {
+  $i: index($glance-colors, $pair);
+
+  .glance-item:nth-child(#{$i}) .glance-diamond {
+    background: nth($pair, 1);
+  }
+
+  .glance-item:nth-child(#{$i}) .glance-num {
+    background: nth($pair, 2);
+  }
+}
+
+.glance-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15.1%; // 31px of the 205px face; scales with the diamond
+  // order matters: counter-rotate FIRST, then nudge, or the offset travels
+  // along the diamond's 45deg axis instead of straight up the screen.
+  // 19% of the 205px face = the comp's 39px lift, which leaves room for the badge.
+  transform: rotate(-45deg) translateY(-19%);
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+}
+
+.glance-label {
+  font-size: 26px;
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+// offset along both local axes; x sqrt(2) that lands 94px straight down,
+// matching the comp's badge depth
+.glance-num {
+  position: absolute;
+  top: 82.4%;
+  left: 82.4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22.4%;
+  aspect-ratio: 1;
+  border-radius: 10%;
+  transform: translate(-50%, -50%);
+
+  span {
+    display: block;
+    font-size: 17px;
+    font-weight: var(--fw-medium);
+    line-height: 1;
+    transform: rotate(-45deg);
+  }
+}
+
+.features-closing {
+  max-width: 960px;
+  margin: 88px auto 0;
+  font-size: 24px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.5;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .features-panel {
+    padding: 76px 32px 110px;
+  }
+
+  .features-title,
+  .glance-title {
+    font-size: 36px;
+  }
+
+  .glance-title {
+    margin-top: 100px;
+  }
+
+  .glance-label {
+    font-size: 21px;
+  }
+
+  .glance-face img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .glance-num span {
+    font-size: 14px;
+  }
+
+  .features-closing {
+    font-size: 21px;
+  }
+
+}
+
+@media (max-width: 1199px) {
+  .features-panel {
+    padding: 56px 24px 80px;
+    border-radius: 28px;
+  }
+
+  .features-title,
+  .glance-title {
+    font-size: 30px;
+  }
+
+  .features-subtitle {
+    font-size: 17px;
+  }
+
+  .features-slider {
+    margin-top: 48px;
+  }
+
+  .glance-title {
+    margin-top: 76px;
+  }
+
+  .glance-label {
+    font-size: 17px;
+  }
+
+  .glance-face img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .glance-num span {
+    font-size: 12px;
+  }
+
+  .features-closing {
+    margin-top: 64px;
+    font-size: 18px;
+  }
+
+  .features-arrow {
+    font-size: 24px;
+  }
+
+}
+
+// the zigzag needs the full row width; below this it reads better as a grid
+@media (max-width: 991px) {
+  .glance-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    aspect-ratio: auto;
+    gap: 24px 8px;
+    margin-top: 36px;
+  }
+
+  .glance-item {
+    flex: none;
+    aspect-ratio: 1;
+  }
+
+  .glance-diamond,
+  .glance-item:nth-child(even) .glance-diamond {
+    top: 50%;
+    width: 70.7%; // diagonal then equals the cell width
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@media (max-width: 575px) {
+  .features {
+    padding-top: 14px;
+  }
+
+  .features-panel {
+    padding: 40px 16px 56px;
+    border-radius: 20px;
+  }
+
+  .features-title,
+  .glance-title {
+    font-size: 23px;
+  }
+
+  .features-subtitle {
+    font-size: 15px;
+  }
+
+  .feature-card {
+    height: 340px;
+  }
+
+  .feature-name {
+    font-size: 19px;
+  }
+
+  .glance-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 8px;
+  }
+
+  .glance-label {
+    font-size: 16px;
+  }
+
+  .features-closing {
+    margin-top: 48px;
+    font-size: 15px;
+  }
+
+  .features-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+}
+
+// ─── Counselling, Inclusion & Student Support ────────────────────────────────
+.counselling {
+  padding: 80px 0 90px;
+  color: var(--color-navy);
+}
+
+.counselling-title {
+  margin: 0;
+  font-size: 46px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.able-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 45px;
+  margin-top: 80px;
+}
+
+.able-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  hyphens: auto;
+
+  p {
+    margin: 0 0 24px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Department badge links out to the A.B.L.E page on the school portal
+.able-head {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.able-logo {
+  flex: 0 0 112px;
+  display: block;
+  border-radius: 50%;
+  @include transEase(transform);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+    transform: scale(1.06);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-navy);
+    outline-offset: 4px;
+  }
+}
+
+.able-name {
+  margin: 0;
+  font-size: 32px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+}
+
+.able-tagline {
+  margin: 10px 0 0 !important;
+  font-size: 26px;
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+.able-media {
+  flex: 0 0 700px;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 700 / 550;
+    object-fit: cover;
+  }
+}
+
+// ─── Support services ─────────────────────────────────────────────────────────
+.services-title {
+  margin: 112px 0 0;
+  font-size: 36px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 40px;
+  margin-top: 98px;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.service-icon {
+  display: flex;
+  flex: 0 0 40px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+}
+
+.service-name {
+  margin: 0;
+  font-size: 19px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.35;
+}
+
+// ─── Stage-by-stage practices ─────────────────────────────────────────────────
+.practices-title {
+  margin-top: 216px;
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 75px 88px;
+  margin-top: 112px;
+}
+
+.stage-name {
+  margin: 0 0 18px;
+  font-size: 28px;
+  font-weight: var(--fw-medium);
+  line-height: 1.2;
+}
+
+.stage-item p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  hyphens: auto;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .counselling-title {
+    font-size: 38px;
+  }
+
+  .able-media {
+    flex-basis: 520px;
+  }
+
+  .able-name {
+    font-size: 28px;
+  }
+
+  .able-tagline {
+    font-size: 22px;
+  }
+
+  .practices-title {
+    margin-top: 160px;
+  }
+
+  .stage-grid {
+    gap: 56px 56px;
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .counselling {
+    padding: 60px 0 68px;
+  }
+
+  .counselling-title {
+    font-size: 30px;
+  }
+
+  .able-block {
+    gap: 32px;
+    margin-top: 52px;
+  }
+
+  .able-copy {
+    font-size: 16px;
+  }
+
+  .able-media {
+    flex-basis: 400px;
+  }
+
+  .able-name {
+    font-size: 24px;
+  }
+
+  .able-tagline {
+    font-size: 19px;
+  }
+
+  .services-title,
+  .stage-name {
+    font-size: 26px;
+  }
+
+  .services-title {
+    margin-top: 72px;
+  }
+
+  .services-grid {
+    gap: 36px 28px;
+    margin-top: 56px;
+  }
+
+  .service-name {
+    font-size: 17px;
+  }
+
+  .practices-title {
+    margin-top: 100px;
+  }
+
+  .stage-grid {
+    gap: 44px 36px;
+    margin-top: 56px;
+  }
+
+  .stage-item p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .able-block {
+    flex-direction: column;
+  }
+
+  .able-media {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .services-grid,
+  .stage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .counselling {
+    padding: 40px 0 48px;
+  }
+
+  .counselling-title {
+    font-size: 23px;
+  }
+
+  .able-block {
+    margin-top: 32px;
+    gap: 24px;
+  }
+
+  .able-copy {
+    font-size: 15px;
+  }
+
+  .able-name {
+    font-size: 20px;
+  }
+
+  .able-tagline {
+    font-size: 17px;
+  }
+
+  .able-head {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .able-logo {
+    flex-basis: 80px;
+  }
+
+  .services-title,
+  .stage-name {
+    font-size: 21px;
+  }
+
+  .services-title {
+    margin-top: 48px;
+  }
+
+  .services-grid,
+  .stage-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 32px;
+  }
+
+  .service-name {
+    font-size: 16px;
+  }
+
+  .practices-title {
+    margin-top: 60px;
+  }
+
+  .stage-item p {
+    font-size: 15px;
+  }
+}
+
+// ─── Our Commitment banner ───────────────────────────────────────────────────
+.commitment {
+  padding-top: 78px;
+}
+
+.commit-banner {
+  position: relative;
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  color: var(--white);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1880 / 825;
+    object-fit: cover;
+  }
+}
+
+// the artwork fills the upper half, so the comp sits the copy below centre
+.commit-overlay {
+  position: absolute;
+  top: 54.8%;
+  left: 50%;
+  width: 100%;
+  max-width: 1240px;
+  padding-inline: 20px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.commit-title {
+  margin: 0;
+  font-size: 50px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.commit-text {
+  margin: 18px 0 0;
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+// ─── Coping With Changes ─────────────────────────────────────────────────────
+.coping {
+  padding: 105px 0 92px;
+  color: var(--color-navy);
+}
+
+.coping-title {
+  margin: 0;
+  font-size: 50px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.coping-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  margin-top: 33px;
+}
+
+.coping-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 19px;
+  line-height: 1.6;
+  hyphens: auto;
+
+  p {
+    margin: 0 0 24px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.coping-subtitle {
+  margin: 0 0 28px;
+  font-size: 28px;
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+}
+
+.coping-media {
+  flex: 0 0 655px;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 655 / 545;
+    object-fit: cover;
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .commit-title,
+  .coping-title {
+    font-size: 40px;
+  }
+
+  .commit-text {
+    font-size: 19px;
+  }
+
+  .coping-media {
+    flex-basis: 500px;
+  }
+
+  .coping-subtitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .commitment {
+    padding-top: 56px;
+  }
+
+  .commit-title,
+  .coping-title {
+    font-size: 30px;
+  }
+
+  .commit-text {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+  .coping {
+    padding: 68px 0 68px;
+  }
+
+  .coping-block {
+    gap: 36px;
+  }
+
+  .coping-copy {
+    font-size: 17px;
+  }
+
+  .coping-subtitle {
+    margin-bottom: 22px;
+    font-size: 21px;
+  }
+
+  .coping-media {
+    flex-basis: 380px;
+  }
+}
+
+@media (max-width: 991px) {
+  // the banner crops hard at this width, so let the copy sit under it
+  .commit-banner {
+    color: var(--color-navy);
+  }
+
+  .commit-overlay {
+    position: static;
+    max-width: none;
+    padding: 22px 0 0;
+    transform: none;
+  }
+
+  .commit-banner img {
+    border-radius: 16px;
+  }
+
+  .coping-block {
+    flex-direction: column;
+  }
+
+  .coping-media {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .commitment {
+    padding-top: 36px;
+  }
+
+  .commit-title,
+  .coping-title {
+    font-size: 23px;
+  }
+
+  .commit-text {
+    font-size: 15px;
+  }
+
+  .coping {
+    padding: 48px 0 48px;
+  }
+
+  .coping-block {
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  .coping-copy {
+    font-size: 15px;
+
+    p {
+      margin-bottom: 18px;
+    }
+  }
+
+  .coping-subtitle {
+    margin-bottom: 18px;
+    font-size: 18px;
+  }
+
+  .coping-media img {
+    border-radius: 12px;
+  }
+}
+
+// ─── How ISWK Supports Parents ───────────────────────────────────────────────
+$supports-colors: #1fad57, #ea5690, #6ccedb, #f2972e, #d28efd, #cac47a;
+
+.supports {
+  padding: 72px 0 60px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.supports-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+// wider than the usual shell: the comp sets the column pitch at 466px
+.supports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 66px 26px;
+  // 3 x (466 - 26) + 2 x 26 puts the column pitch on the comp's 466px
+  max-width: 1372px;
+  margin: 89px auto 0;
+}
+
+.support-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+  margin: 0 auto;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 36px;
+  line-height: 1;
+}
+
+@each $color in $supports-colors {
+  .support-item:nth-child(#{index($supports-colors, $color)}) .support-icon {
+    background: $color;
+  }
+}
+
+// capped so the headings break where the comp breaks them
+.support-name {
+  // wide enough that "Parent-Teacher Meetings" holds on one line
+  max-width: 400px;
+  margin: 18px auto 0;
+  font-size: 30px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+}
+
+.support-item p {
+  margin: 20px 0 0;
+  font-size: 19px;
+  line-height: 1.6;
+  hyphens: auto;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .supports-title {
+    font-size: 40px;
+  }
+
+  .supports-grid {
+    gap: 52px 24px;
+    margin-top: 64px;
+  }
+
+  .support-name {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .supports {
+    padding: 56px 0 48px;
+  }
+
+  .supports-title {
+    font-size: 30px;
+  }
+
+  .supports-grid {
+    gap: 44px 20px;
+    margin-top: 48px;
+  }
+
+  .support-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 29px;
+  }
+
+  .support-name {
+    margin-top: 14px;
+    font-size: 22px;
+  }
+
+  .support-item p {
+    margin-top: 14px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 767px) {
+  .supports-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .supports {
+    padding: 40px 0 36px;
+  }
+
+  .supports-title {
+    font-size: 23px;
+  }
+
+  .supports-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-top: 32px;
+  }
+
+  .support-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+  }
+
+  .support-name {
+    font-size: 19px;
+  }
+
+  .support-item p {
+    font-size: 15px;
+  }
+}
+
+// ─── Key Messages for Students and Parents ───────────────────────────────────
+.messages {
+  padding-top: 40px;
+}
+
+.messages-panel {
+  padding: 80px 40px 90px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.messages-title {
+  margin: 0;
+  font-size: 46px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.messages-slider {
+  margin-top: 38px;
+}
+
+.message-quote {
+  margin: 0;
+}
+
+.message-mark {
+  display: block;
+  color: #6ed0dd;
+  font-size: 46px;
+  line-height: 1;
+}
+
+.message-quote p {
+  margin: 36px 0 0;
+  font-size: 28px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+.messages-pagination {
+  margin-top: 44px;
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 7px !important;
+    background: #5c82b3;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--white);
+  }
+}
+
+// ─── Our Commitment closing statement ────────────────────────────────────────
+.closing {
+  padding: 94px 0 83px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.closing-title {
+  margin: 0;
+  font-size: 50px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.closing-text {
+  // wide enough to hold the comp's three-line break in Poppins
+  max-width: 1200px;
+  margin: 33px auto 0;
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .messages-title,
+  .closing-title {
+    font-size: 38px;
+  }
+
+  .message-quote p {
+    font-size: 24px;
+  }
+
+  .closing-text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .messages-panel {
+    padding: 56px 28px 64px;
+  }
+
+  .messages-title,
+  .closing-title {
+    font-size: 30px;
+  }
+
+  .message-mark {
+    font-size: 38px;
+  }
+
+  .message-quote p {
+    margin-top: 26px;
+    font-size: 20px;
+  }
+
+  .messages-pagination {
+    margin-top: 32px;
+  }
+
+  .closing {
+    padding: 64px 0 60px;
+  }
+
+  .closing-text {
+    margin-top: 24px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  .messages {
+    padding-top: 20px;
+  }
+
+  .messages-panel {
+    padding: 40px 18px 46px;
+    border-radius: 20px;
+  }
+
+  .messages-title,
+  .closing-title {
+    font-size: 23px;
+  }
+
+  .messages-slider {
+    margin-top: 26px;
+  }
+
+  .message-mark {
+    font-size: 30px;
+  }
+
+  .message-quote p {
+    margin-top: 18px;
+    font-size: 17px;
+  }
+
+  .messages-pagination {
+    margin-top: 24px;
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px !important;
+    }
+  }
+
+  .closing {
+    padding: 44px 0 44px;
+  }
+
+  .closing-text {
+    font-size: 15px;
+  }
+}
+
+// ─── Listen button on the navy panel ─────────────────────────────────────────
+.listen-btn-light {
+  color: var(--white);
+
+  .listen-icon {
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--white);
+  }
+
+  &:hover .listen-icon {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  &.is-playing .listen-icon,
+  &.is-loading .listen-icon {
+    background: var(--white);
+    color: var(--color-navy);
+  }
+}
+
+// the panel centres its content, so centre the control with it
+.features-panel .listen-btn {
+  margin-bottom: 18px;
+}
+
+.page-intro .listen-btn,
+.counselling .listen-btn,
+.coping .listen-btn {
+  margin-bottom: 16px;
+}
+
+// ─── A.B.L.E portal link ─────────────────────────────────────────────────────
+.able-link {
+  padding-bottom: 20px;
+  color: var(--color-navy);
+
+  p {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--color-navy);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: var(--color-amber);
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .able-link p {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575px) {
+  .able-link p {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,1467 @@
+// ─── Inner page: PULSE Live Zone ─────────────────────────────────────────────
+$live-colors: (#4590d0, #f0932c, #1d9ba7, #5ea13e, #7c67ad);
+
+// `.icon-sprite` and the line-icon defaults live in pages/_stages.scss; this
+// page only has to add its own hosts to that selector list.
+.live-intro svg,
+.whats-live svg,
+.listens svg,
+.living svg,
+.voices svg,
+.feedback svg,
+.on-your-pulse svg {
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// ─── Intro ───────────────────────────────────────────────────────────────────
+.live-intro {
+  padding: 76px 0 0;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 14px;
+  padding: 8px 20px;
+  background: rgba(225, 102, 84, 0.12);
+  border-radius: 999px;
+  color: #c2402c;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background: #e1503a;
+  border-radius: 50%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #e1503a;
+    animation: livePing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes livePing {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+// people who ask for less motion should not get a blinking dot
+@media (prefers-reduced-motion: reduce) {
+  .live-dot::after {
+    animation: none;
+  }
+}
+
+.live-tagline {
+  margin: 18px 0 0;
+  color: #b9822a;
+  font-size: 24px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+}
+
+.live-verbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  margin-top: 24px;
+
+  li {
+    position: relative;
+    padding: 8px 22px;
+    background: rgba(5, 39, 84, 0.06);
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: var(--fw-semibold);
+  }
+}
+
+.live-intro .prose {
+  max-width: 1020px;
+  margin-inline: auto;
+  margin-top: 34px;
+  font-size: 18px;
+}
+
+.live-lead {
+  font-size: 21px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.5;
+}
+
+// the client's Live Zone artwork, relocated out of the hero so this page's
+// banner matches the other five; capped so it reads as a supporting visual
+.live-visual {
+  max-width: 980px;
+  margin: 50px auto 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(5, 39, 84, 0.12);
+    border-radius: 20px;
+  }
+}
+
+// ─── What's live? ────────────────────────────────────────────────────────────
+.whats-live {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+// five cards: the first spans two columns so both rows fill completely and
+// "Parent Voice" reads as the lead item
+.live-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 48px;
+  text-align: left;
+}
+
+.live-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 30px 34px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 20px;
+  border-left-width: 5px;
+  @include transEase(box-shadow);
+
+  &:hover {
+    box-shadow: 0 18px 40px rgba(5, 39, 84, 0.12);
+  }
+
+  p {
+    margin: 12px 0 0;
+    color: var(--color-navy);
+    font-size: 16px;
+    line-height: 1.6;
+    hyphens: auto;
+  }
+}
+
+.live-card-feature {
+  grid-column: span 2;
+}
+
+.live-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  color: var(--white);
+  font-size: 29px;
+}
+
+.live-card-name {
+  margin: 20px 0 0;
+  color: var(--color-navy);
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+}
+
+@each $color in $live-colors {
+  .live-card:nth-child(#{index($live-colors, $color)}) {
+    border-left-color: $color;
+
+    .live-card-icon {
+      background: $color;
+    }
+  }
+}
+
+// ─── A space that listens with purpose ───────────────────────────────────────
+.listens {
+  padding: 88px 0 0;
+}
+
+.listens-panel {
+  padding: 66px 48px 62px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.listens-title {
+  margin: 0;
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+
+  span {
+    display: block;
+    color: var(--color-gold);
+  }
+}
+
+.listens-text {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  font-size: 18px;
+  line-height: 1.65;
+  opacity: 0.92;
+}
+
+.listens-emphasis {
+  max-width: 900px;
+  margin: 22px auto 0;
+  font-size: 20px;
+  line-height: 1.5;
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// ─── Your voice → our listening → shared understanding ───────────────────────
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 46px;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  font-size: 19px;
+  font-weight: var(--fw-semibold);
+}
+
+.flow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--color-amber);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 22px;
+}
+
+.flow-arrow {
+  display: flex;
+  color: var(--color-amber);
+
+  svg {
+    width: 48px !important;
+    height: 24px !important;
+  }
+}
+
+// ─── Through this space, we hope to ──────────────────────────────────────────
+.hopes-intro {
+  margin: 48px 0 0;
+  font-size: 19px;
+  font-weight: var(--fw-medium);
+}
+
+.hopes-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 26px;
+  max-width: 940px;
+  margin: 24px auto 0;
+  text-align: left;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  // an odd count leaves a gap, so the last item runs the full width
+  li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+.hopes-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 20px;
+}
+
+// ─── A living conversation ───────────────────────────────────────────────────
+.living {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+.living-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 26px;
+  max-width: 1060px;
+  margin: 44px auto 0;
+  text-align: left;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 26px;
+    background: #f4f7fb;
+    border-radius: 16px;
+    color: var(--color-navy);
+    font-size: 18px;
+    line-height: 1.45;
+  }
+}
+
+.living-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  background: var(--white);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 24px;
+}
+
+.living-closing {
+  max-width: 900px;
+  margin: 40px auto 0;
+  color: var(--color-navy);
+  font-size: 22px;
+  line-height: 1.5;
+
+  strong {
+    color: #b9822a;
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// ─── Voices from our community (testimonials) ────────────────────────────────
+.voices {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+.voices-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  color: #b9822a;
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.voices-eyebrow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  background: rgba(238, 164, 3, 0.16);
+  border-radius: 50%;
+  color: #b9822a;
+  font-size: 18px;
+}
+
+.voices-slider {
+  position: relative;
+  margin-top: 46px;
+
+  // the cards carry a lifted shadow, so the track needs room not to clip it
+  .swiper {
+    padding: 10px 6px 14px;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+}
+
+.voice-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 34px 30px 30px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 20px;
+  text-align: left;
+  @include transEase(box-shadow);
+
+  &:hover {
+    box-shadow: 0 18px 40px rgba(5, 39, 84, 0.12);
+  }
+}
+
+.voice-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: rgba(238, 164, 3, 0.16);
+  border-radius: 14px;
+  color: var(--color-amber);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.voice-quote {
+  flex: 1 1 auto;
+  margin: 20px 0 24px;
+
+  p {
+    margin: 0;
+    color: var(--color-navy);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+}
+
+.voice-by {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(5, 39, 84, 0.1);
+}
+
+.voice-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  background: var(--color-navy);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+}
+
+.voice-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.voice-name {
+  color: var(--color-navy);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+.voice-role {
+  color: var(--color-text-muted);
+  font-size: 14.5px;
+  line-height: 1.35;
+}
+
+// the accent colours from `What's Live?` carry through the testimonial marks
+@each $color in $live-colors {
+  .voices-slider
+    .swiper-slide:nth-child(#{length($live-colors)}n + #{index($live-colors, $color)})
+    .voice-card {
+    border-top: 4px solid $color;
+
+    .voice-mark {
+      background: rgba($color, 0.14);
+      color: $color;
+    }
+  }
+}
+
+.voices-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.voices-arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.14);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  @include transEase;
+  z-index: 2;
+
+  &:hover {
+    background: var(--color-navy);
+    color: var(--white);
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.voices-prev {
+  left: -60px;
+}
+
+.voices-next {
+  right: -60px;
+}
+
+// below this the shell fills the viewport, so the arrows have nowhere outside
+// to sit; they rejoin the control row under the track
+@media (max-width: 1499px) {
+  .voices-arrow {
+    position: static;
+    transform: none;
+  }
+}
+
+// the wrapper's specificity has to beat Swiper's own
+// `.swiper-pagination-bullets.swiper-pagination-horizontal { width: 100% }`,
+// which would otherwise push the arrows out to the shell edges
+.voices-controls .voices-pagination {
+  position: static;
+  width: auto;
+
+  .swiper-pagination-bullet {
+    width: 11px;
+    height: 11px;
+    margin: 0 6px !important;
+    background: rgba(5, 39, 84, 0.25);
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--color-amber);
+  }
+}
+
+// ─── Share your feedback ─────────────────────────────────────────────────────
+.feedback {
+  padding: 88px 0 0;
+}
+
+.feedback-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 0;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.feedback-intro {
+  padding: 54px 44px 50px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  color: var(--white);
+}
+
+.feedback-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  background: var(--color-amber);
+  border-radius: 16px;
+  color: var(--color-navy);
+  font-size: 30px;
+}
+
+.feedback-title {
+  margin: 24px 0 0;
+  font-size: 32px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.feedback-text {
+  margin: 16px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  opacity: 0.92;
+}
+
+.feedback-points {
+  margin: 28px 0 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+
+    + li {
+      margin-top: 14px;
+    }
+  }
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+.feedback-tick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  margin-top: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 15px;
+}
+
+.feedback-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 30px 0 0;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.feedback-privacy-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  color: var(--color-gold);
+  font-size: 16px;
+}
+
+.feedback-form {
+  padding: 54px 44px 50px;
+}
+
+.fb-topic {
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+}
+
+.fb-legend {
+  float: left; // a floated legend takes the fieldset's full width in Chrome
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+  color: var(--color-navy);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+}
+
+.fb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  clear: both;
+  gap: 10px;
+}
+
+.fb-chip {
+  margin: 0;
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    background: #f4f7fb;
+    border: 1px solid rgba(5, 39, 84, 0.12);
+    border-radius: 999px;
+    color: var(--color-navy);
+    font-size: 15px;
+    font-weight: var(--fw-medium);
+    cursor: pointer;
+    @include transEase;
+  }
+
+  input:checked + span {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--white);
+  }
+
+  // the real control is visually hidden, so the ring has to move to the label
+  input:focus-visible + span {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+}
+
+.fb-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+}
+
+.fb-field {
+  margin: 0 0 18px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-navy);
+    font-size: 15px;
+    font-weight: var(--fw-semibold);
+  }
+
+  input,
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 16px;
+    background: #f4f7fb;
+    border: 1px solid rgba(5, 39, 84, 0.14);
+    border-radius: 12px;
+    color: var(--color-navy);
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.5;
+    @include transEase(border-color);
+
+    &::placeholder {
+      color: var(--dark-300);
+    }
+
+    &:focus {
+      background: var(--white);
+      border-color: var(--color-amber);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(238, 164, 3, 0.18);
+    }
+  }
+
+  textarea {
+    min-height: 130px;
+    resize: vertical;
+  }
+
+  select {
+    // the native arrow varies by platform; draw one and keep the box uniform
+    appearance: none;
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23052754' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px 18px;
+  }
+
+  // an invalid field is only flagged once the form has been submitted
+  .was-validated &.is-invalid input,
+  .was-validated &.is-invalid select,
+  .was-validated &.is-invalid textarea {
+    background: rgba(194, 64, 44, 0.06);
+    border-color: #c2402c;
+  }
+}
+
+.fb-optional {
+  color: var(--color-text-muted);
+  font-weight: var(--fw-normal);
+}
+
+.fb-required {
+  color: #c2402c;
+}
+
+.fb-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 4px 0 24px;
+
+  input {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--color-navy);
+    cursor: pointer;
+  }
+
+  label {
+    color: var(--color-navy);
+    font-size: 15px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+}
+
+.fb-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 30px;
+  background: var(--color-amber);
+  border: 0;
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  @include transEase;
+
+  svg {
+    font-size: 19px;
+  }
+
+  &:hover {
+    background: var(--color-gold);
+    transform: translateY(-2px);
+  }
+}
+
+.fb-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 15.5px;
+  line-height: 1.5;
+
+  &.is-ok {
+    background: rgba(94, 161, 62, 0.12);
+    color: #3f7a29;
+  }
+
+  &.is-error {
+    background: rgba(194, 64, 44, 0.1);
+    color: #c2402c;
+  }
+}
+
+// ─── What's on your pulse? ───────────────────────────────────────────────────
+.on-your-pulse {
+  padding: 88px 0 0;
+}
+
+.pulse-panel {
+  padding: 58px 48px 62px;
+  background: rgba(238, 164, 3, 0.1);
+  border: 1px solid rgba(238, 164, 3, 0.45);
+  border-radius: 24px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.pulse-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  background: var(--color-amber);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 36px;
+}
+
+.pulse-title {
+  margin: 24px 0 0;
+  font-size: 38px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.pulse-text {
+  max-width: 860px;
+  margin: 18px auto 0;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.pulse-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 14px 26px;
+  background: var(--white);
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  text-align: left;
+}
+
+.pulse-note-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  background: var(--color-navy);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 18px;
+}
+
+// ─── Closing signature ───────────────────────────────────────────────────────
+.live-closing {
+  padding: 88px 0 40px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.sign-title {
+  margin: 0;
+  font-size: 46px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.sign-text {
+  margin: 16px 0 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.sign-verbs {
+  margin: 10px 0 0;
+  color: #b9822a;
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.01em;
+}
+
+.sign-strap {
+  margin: 30px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(5, 39, 84, 0.16);
+  font-size: 24px;
+  font-weight: var(--fw-medium);
+
+  strong {
+    font-weight: var(--fw-bold);
+  }
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .feedback-title {
+    font-size: 28px;
+  }
+
+  .live-tagline {
+    font-size: 21px;
+  }
+
+  .listens-title,
+  .sign-title {
+    font-size: 34px;
+  }
+
+  .pulse-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .live-intro {
+    padding-top: 56px;
+  }
+
+  .voices-eyebrow {
+    font-size: 14px;
+  }
+
+  .voice-quote p {
+    font-size: 16px;
+  }
+
+  .feedback-intro,
+  .feedback-form {
+    padding: 44px 30px 42px;
+  }
+
+  .feedback-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+  }
+
+  .feedback-text {
+    font-size: 16px;
+  }
+
+  .live-tagline {
+    font-size: 19px;
+  }
+
+  .live-lead {
+    font-size: 19px;
+  }
+
+  .live-intro .prose {
+    font-size: 17px;
+  }
+
+  .live-visual {
+    margin-top: 40px;
+  }
+
+  .whats-live,
+  .listens,
+  .living,
+  .voices,
+  .feedback,
+  .on-your-pulse,
+  .live-closing {
+    padding-top: 64px;
+  }
+
+  // 3-up would leave the feature card only a third of a narrow shell
+  .live-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .live-card-feature {
+    grid-column: span 2;
+  }
+
+  .live-card {
+    padding: 26px 24px 28px;
+  }
+
+  .live-card-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 25px;
+  }
+
+  .live-card-name {
+    font-size: 20px;
+  }
+
+  .listens-panel,
+  .pulse-panel {
+    padding: 52px 28px 56px;
+  }
+
+  .listens-title {
+    font-size: 28px;
+  }
+
+  .listens-text {
+    font-size: 17px;
+  }
+
+  .listens-emphasis {
+    font-size: 18px;
+  }
+
+  .flow-steps {
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .flow-step {
+    padding: 12px 20px;
+    font-size: 17px;
+  }
+
+  .flow-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+  }
+
+  .flow-arrow svg {
+    width: 34px !important;
+  }
+
+  .hopes-intro {
+    margin-top: 38px;
+    font-size: 17px;
+  }
+
+  .hopes-list li {
+    font-size: 16px;
+  }
+
+  .living-list li {
+    padding: 18px 20px;
+    font-size: 16.5px;
+  }
+
+  .living-mark {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+  }
+
+  .living-closing {
+    font-size: 19px;
+  }
+
+  .pulse-icon {
+    width: 62px;
+    height: 62px;
+    font-size: 30px;
+  }
+
+  .pulse-title {
+    font-size: 26px;
+  }
+
+  .pulse-text {
+    font-size: 17px;
+  }
+
+  .sign-text {
+    font-size: 18px;
+  }
+
+  .sign-verbs {
+    font-size: 19px;
+  }
+
+  .sign-strap {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .feedback-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hopes-list {
+    grid-template-columns: minmax(0, 1fr);
+
+    li:last-child {
+      grid-column: auto;
+    }
+  }
+
+  .living-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .fb-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .live-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .live-card-feature {
+    grid-column: auto;
+  }
+
+  // the arrows turn down the page once the steps stack
+  .flow-steps {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flow-step {
+    justify-content: flex-start;
+  }
+
+  .flow-arrow {
+    justify-content: center;
+
+    svg {
+      width: 24px !important;
+      height: 34px !important;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .live-intro {
+    padding-top: 40px;
+  }
+
+  .live-badge {
+    font-size: 12px;
+    padding: 7px 16px;
+  }
+
+  .live-tagline {
+    font-size: 17px;
+  }
+
+  .live-verbs li {
+    padding: 7px 16px;
+    font-size: 15px;
+  }
+
+  .live-lead {
+    font-size: 17px;
+  }
+
+  .live-intro .prose {
+    font-size: 16px;
+  }
+
+  .live-visual {
+    margin-top: 30px;
+
+    img {
+      border-radius: 14px;
+    }
+  }
+
+  .whats-live,
+  .listens,
+  .living,
+  .voices,
+  .feedback,
+  .on-your-pulse,
+  .live-closing {
+    padding-top: 46px;
+  }
+
+  .voices-slider {
+    margin-top: 32px;
+  }
+
+  .voice-card {
+    padding: 26px 20px 24px;
+  }
+
+  .voice-quote p {
+    font-size: 15.5px;
+  }
+
+  .voice-avatar {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .feedback-intro,
+  .feedback-form {
+    padding: 34px 18px 36px;
+  }
+
+  .feedback-panel {
+    border-radius: 18px;
+  }
+
+  .feedback-title {
+    font-size: 23px;
+  }
+
+  .feedback-points li {
+    font-size: 15px;
+  }
+
+  .fb-chip span {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .fb-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 22px;
+    font-size: 16px;
+  }
+
+  .listens-panel,
+  .pulse-panel {
+    padding: 36px 18px 40px;
+    border-radius: 18px;
+  }
+
+  .listens-title {
+    font-size: 23px;
+  }
+
+  .listens-emphasis {
+    font-size: 16px;
+  }
+
+  .flow-step {
+    padding: 11px 16px;
+    font-size: 16px;
+  }
+
+  .hopes-list li {
+    align-items: flex-start;
+    padding: 13px 16px;
+    font-size: 15.5px;
+  }
+
+  .live-card-name {
+    font-size: 18px;
+  }
+
+  .living-list li {
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15.5px;
+  }
+
+  .living-mark {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
+  .living-closing {
+    font-size: 17px;
+  }
+
+  .pulse-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+  }
+
+  .pulse-title {
+    font-size: 22px;
+  }
+
+  .pulse-text {
+    font-size: 16px;
+  }
+
+  .pulse-note {
+    align-items: flex-start;
+    padding: 13px 18px;
+    border-radius: 16px;
+    font-size: 14.5px;
+  }
+
+  .sign-title {
+    font-size: 24px;
+  }
+
+  .sign-text {
+    font-size: 16px;
+  }
+
+  .sign-verbs {
+    font-size: 17px;
+  }
+
+  .sign-strap {
+    font-size: 17px;
+  }
+}

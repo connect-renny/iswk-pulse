@@ -1,0 +1,15 @@
+.container {
+  @media (min-width: 1600px) {
+    max-width: 1600px;
+  }
+}
+
+// ─── Full-bleed shell with the 20px gutters used across the design ────────────
+.page-shell {
+  width: 100%;
+  padding-inline: 20px;
+
+  @media (max-width: 767px) {
+    padding-inline: 12px;
+  }
+}

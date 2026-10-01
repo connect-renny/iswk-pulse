@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Image placeholder">
+  <defs>
+    <linearGradient id="pw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2f8"/>
+      <stop offset="1" stop-color="#dde5f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#pw)"/>
+  <rect x="10" y="10" width="780" height="480" fill="none" stroke="#052754" stroke-opacity=".18" stroke-width="3" stroke-dasharray="14 12"/>
+  <g fill="none" stroke="#052754" stroke-opacity=".38" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="250" y="150" width="300" height="200" rx="16"/>
+    <circle cx="325" cy="212" r="24"/>
+    <path d="M262 330l84-84 62 62 46-40 84 74"/>
+  </g>
+  <text x="400" y="415" text-anchor="middle" font-family="Poppins, Segoe UI, sans-serif" font-size="26" font-weight="600" fill="#052754" fill-opacity=".45">Image placeholder</text>
+</svg>

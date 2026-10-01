@@ -1,0 +1,1874 @@
+// ─── Inner page: Parenting Across Every Stage ────────────────────────────────
+// Stage accents. They stay close to the client's own artwork so the page still
+// reads as one family with the navy/gold shell.
+$stage-foundation: #dd7a33;
+$stage-preparatory: #3f9153;
+$stage-middle: #6f8b2a;
+$stage-secondary: #1d5fa8;
+$stage-seniorsec: #7a52a3;
+
+$goal-colors: (
+  #dd7a33,
+  #3f9153,
+  #1d9ba7,
+  #4590d0,
+  #7c67ad,
+  #e16654,
+  #f0932c
+);
+
+// ─── Icon sprite &amp; line-icon defaults ──────────────────────────────────────
+// The sprite is never painted; `use` clones from it. Stroke/fill are inherited
+// SVG properties, so setting them on the host <svg> reaches the cloned content —
+// a selector aimed at the sprite itself would not.
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.stage-switch svg,
+.stage-panel svg,
+.stage-crosslink svg {
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.text-gold-deep {
+  color: #b9822a;
+}
+
+// ─── Page intro &amp; stage switch ─────────────────────────────────────────────
+.stage-intro {
+  padding: 76px 0 0;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.stage-lead {
+  max-width: 1000px;
+  margin: 26px auto 0;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.stage-switch {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 46px;
+  padding: 10px;
+  background: #f2f5fa;
+  border-radius: 999px;
+}
+
+.stage-tab {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 34px;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  color: var(--color-navy);
+  text-align: left;
+  cursor: pointer;
+  @include transEase;
+
+  .stage-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--white);
+    border-radius: 50%;
+    color: var(--color-navy);
+    font-size: 24px;
+    @include transEase;
+  }
+
+  .stage-tab-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stage-tab-name {
+    font-size: 19px;
+    font-weight: var(--fw-semibold);
+    line-height: 1.2;
+  }
+
+  .stage-tab-meta {
+    margin-top: 3px;
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    background: rgba(5, 39, 84, 0.07);
+  }
+
+  &.is-active {
+    background: var(--color-navy);
+    color: var(--white);
+
+    .stage-tab-icon {
+      background: var(--color-amber);
+      color: var(--color-navy);
+    }
+
+    .stage-tab-meta {
+      opacity: 0.8;
+    }
+  }
+}
+
+// ─── Shared section furniture ────────────────────────────────────────────────
+.section-heading {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 44px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.section-subheading {
+  margin: 12px 0 0;
+  color: var(--color-navy);
+  font-size: 21px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+  opacity: 0.75;
+}
+
+.section-lead-copy {
+  max-width: 1080px;
+  margin: 24px auto 0;
+  color: var(--color-navy);
+  font-size: 19px;
+  line-height: 1.62;
+  hyphens: auto;
+}
+
+.stage-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: #b9822a;
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  .stage-eyebrow-mark {
+    width: 42px;
+    height: 3px;
+    background: var(--color-amber);
+    border-radius: 2px;
+  }
+}
+
+// ─── Vice Principal message ──────────────────────────────────────────────────
+.vp-message {
+  padding: 72px 0 20px;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.vp-title {
+  margin: 18px 0 0;
+  font-size: 46px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+
+  span {
+    display: block;
+  }
+}
+
+.vp-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  margin-top: 52px;
+  text-align: left;
+}
+
+.vp-photo {
+  flex: 0 0 400px;
+  margin: 0;
+  background: #eef2f8;
+  border-radius: 20px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+}
+
+.vp-caption {
+  padding: 20px 24px 22px;
+  background: var(--color-navy);
+  color: var(--white);
+  text-align: center;
+
+  strong {
+    display: block;
+    font-size: 21px;
+    font-weight: var(--fw-semibold);
+    line-height: 1.25;
+  }
+
+  span {
+    display: block;
+    margin-top: 4px;
+    font-size: 15px;
+    opacity: 0.82;
+  }
+}
+
+// Matches the portrait card's height exactly. Only the body scrolls; the
+// sign-off stays pinned underneath so the name and designation stay in view.
+.vp-letter {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+  min-width: 0;
+  font-size: 17px;
+  line-height: 1.66;
+  hyphens: auto;
+
+  p {
+    margin: 0 0 22px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .letter-sign {
+    flex: 0 0 auto;
+    margin: 22px 44px 0 0;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(5, 39, 84, 0.2);
+  }
+}
+
+// size containment drops the body out of the row's height, so the portrait
+// alone sets it and the body fills whatever the sign-off leaves
+.vp-letter-body {
+  flex: 1 1 0;
+  min-height: 0;
+  contain: size;
+  padding: 6px 44px 6px 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color: #bb996b transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #bb996b;
+    border-radius: 3px;
+  }
+}
+
+.vp-quote-mark {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-amber);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.letter-salutation {
+  font-weight: var(--fw-semibold);
+}
+
+.letter-sign strong {
+  font-weight: var(--fw-semibold);
+}
+
+// ─── Understanding your child at this stage ──────────────────────────────────
+.understanding {
+  padding: 84px 0 20px;
+  text-align: center;
+}
+
+.need-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 30px;
+  margin-top: 56px;
+  text-align: left;
+}
+
+.need-card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 34px 40px;
+  background: #fbf8f3;
+  border-radius: 22px;
+}
+
+.need-card-foundation {
+  background: rgba($stage-foundation, 0.08);
+
+  .need-badge {
+    background: $stage-foundation;
+  }
+
+  .need-list li svg {
+    color: $stage-foundation;
+  }
+}
+
+.need-card-preparatory {
+  background: rgba($stage-preparatory, 0.09);
+
+  .need-badge {
+    background: $stage-preparatory;
+  }
+
+  .need-list li svg {
+    color: $stage-preparatory;
+  }
+}
+
+.need-head {
+  padding-bottom: 22px;
+  border-bottom: 1px dashed rgba(5, 39, 84, 0.18);
+  text-align: center;
+}
+
+.need-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 30px;
+}
+
+.need-name {
+  margin: 16px 0 0;
+  color: var(--color-navy);
+  font-size: 26px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.need-meta {
+  margin: 6px 0 0;
+  color: var(--color-navy);
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.need-list {
+  margin-top: 8px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+    color: var(--color-navy);
+    font-size: 17px;
+    font-weight: var(--fw-medium);
+    line-height: 1.4;
+
+    + li {
+      border-top: 1px dashed rgba(5, 39, 84, 0.14);
+    }
+
+    svg {
+      margin-top: 1px;
+      font-size: 24px;
+    }
+  }
+}
+
+.need-media {
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+  }
+}
+
+// ─── Understanding the adolescent journey ────────────────────────────────────
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 56px;
+  text-align: left;
+}
+
+.journey-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.1);
+  border-radius: 22px;
+  overflow: hidden;
+  @include transEase(box-shadow);
+
+  &:hover {
+    box-shadow: 0 18px 40px rgba(5, 39, 84, 0.12);
+  }
+}
+
+.journey-media {
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
+
+.journey-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 0 30px 34px;
+}
+
+.journey-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  background: var(--color-navy);
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 28px;
+}
+
+.journey-name {
+  margin: 18px 0 0;
+  color: var(--color-navy);
+  font-size: 25px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+
+  span {
+    display: block;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: var(--fw-medium);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+}
+
+.journey-tagline {
+  margin: 14px 0 0;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(5, 39, 84, 0.18);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+}
+
+.journey-list {
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 13px 0;
+    color: var(--color-navy);
+    font-size: 16.5px;
+    line-height: 1.4;
+
+    + li {
+      border-top: 1px dashed rgba(5, 39, 84, 0.12);
+    }
+
+    svg {
+      margin-top: 1px;
+      font-size: 22px;
+    }
+  }
+}
+
+@each $name, $color
+  in (middle: $stage-middle, secondary: $stage-secondary, senior: $stage-seniorsec)
+{
+  .journey-card-#{$name} {
+    .journey-badge {
+      background: $color;
+    }
+
+    .journey-tagline {
+      color: $color;
+    }
+
+    .journey-list li svg {
+      color: $color;
+    }
+  }
+}
+
+// ─── The parent's role evolves ───────────────────────────────────────────────
+.role-shift {
+  padding: 84px 0 0;
+}
+
+.role-panel {
+  padding: 66px 40px 62px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.role-title {
+  margin: 0;
+  font-size: 40px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.role-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  margin-top: 46px;
+}
+
+.role-column {
+  flex: 1 1 0;
+  max-width: 520px;
+  padding: 30px 26px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+}
+
+.role-column-to {
+  background: rgba(238, 164, 3, 0.12);
+  border-color: var(--color-amber);
+}
+
+.role-label {
+  margin: 0 0 22px;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.role-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: var(--fw-medium);
+
+    svg {
+      font-size: 21px;
+      color: var(--color-amber);
+    }
+  }
+}
+
+.role-column-to .role-steps li {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.role-arrow {
+  flex: 0 0 auto;
+  display: flex;
+  color: var(--color-amber);
+
+  svg {
+    width: 64px !important;
+    height: 24px !important;
+    stroke-width: 2;
+  }
+}
+
+.role-note {
+  margin: 40px 0 0;
+  font-size: 21px;
+  line-height: 1.45;
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// ─── Home / school partnership table ─────────────────────────────────────────
+.partner-table {
+  padding: 84px 0 0;
+}
+
+.partner-panel {
+  padding: 74px 40px 82px;
+  background: #f4f7fb;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.partner-heading {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.partner-tagline {
+  margin: 10px 0 0;
+  color: #b9822a;
+  font-size: 20px;
+  font-weight: var(--fw-medium);
+}
+
+.partner-rows {
+  margin-top: 46px;
+  text-align: left;
+}
+
+.partner-colhead,
+.partner-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+  align-items: center;
+}
+
+.partner-colhead {
+  padding: 0 0 14px;
+
+  .partner-colname {
+    color: var(--color-navy);
+    font-size: 14px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .partner-colname:last-child {
+    grid-column: 3;
+  }
+}
+
+.partner-row {
+  margin-top: 12px;
+}
+
+.partner-cell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 74px;
+  padding: 16px 26px;
+  background: var(--white);
+  border-radius: 14px;
+  color: var(--color-navy);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.partner-cell-school {
+  font-weight: var(--fw-semibold);
+  box-shadow: inset 4px 0 0 var(--color-navy);
+}
+
+.partner-cell-home {
+  box-shadow: inset 4px 0 0 var(--color-amber);
+}
+
+.partner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  background: rgba(5, 39, 84, 0.08);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 22px;
+}
+
+// the dotted bridge between the two halves of each pair
+.partner-link {
+  position: relative;
+  height: 2px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(5, 39, 84, 0.3) 0 6px,
+    transparent 6px 12px
+  );
+  background-size: 12px 2px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--color-amber);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// ─── Integrated classroom strategies ─────────────────────────────────────────
+.strategies {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+.goals-title {
+  margin: 66px 0 0;
+  color: var(--color-navy);
+  font-size: 30px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 42px;
+  text-align: left;
+}
+
+.goal-item {
+  padding: 30px 26px 32px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.1);
+  border-radius: 18px;
+  @include transEase(transform);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  p {
+    margin: 12px 0 0;
+    color: var(--color-navy);
+    font-size: 16px;
+    line-height: 1.55;
+    hyphens: auto;
+  }
+}
+
+.goal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  color: var(--white);
+  font-size: 26px;
+}
+
+@each $color in $goal-colors {
+  .goal-item:nth-child(#{index($goal-colors, $color)}) .goal-icon {
+    background: $color;
+  }
+}
+
+.goal-name {
+  margin: 18px 0 0;
+  color: var(--color-navy);
+  font-size: 19px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+// ─── Stage divider band ──────────────────────────────────────────────────────
+.stage-band {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 74px 0 34px;
+}
+
+.stage-band-line {
+  flex: 1 1 auto;
+  height: 1px;
+  background: rgba(5, 39, 84, 0.16);
+}
+
+.stage-band-label {
+  flex: 0 0 auto;
+  padding: 11px 30px;
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stage-band-foundation {
+  background: $stage-foundation;
+}
+.stage-band-preparatory {
+  background: $stage-preparatory;
+}
+.stage-band-middle {
+  background: $stage-middle;
+}
+.stage-band-secondary {
+  background: $stage-secondary;
+}
+.stage-band-seniorsec {
+  background: $stage-seniorsec;
+}
+
+// ─── Grade cards ─────────────────────────────────────────────────────────────
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  text-align: left;
+}
+
+.grade-card {
+  padding: 34px 30px 36px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 20px;
+  border-top-width: 5px;
+}
+
+.grade-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 28px;
+}
+
+.grade-name {
+  margin: 20px 0 0;
+  color: var(--color-navy);
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.grade-tagline {
+  margin: 6px 0 20px;
+  font-size: 17px;
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+.grade-list {
+  li {
+    position: relative;
+    padding-left: 26px;
+    color: var(--color-navy);
+    font-size: 16px;
+    line-height: 1.55;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    + li {
+      margin-top: 12px;
+    }
+  }
+}
+
+@each $name, $color
+  in (
+    foundation: $stage-foundation,
+    preparatory: $stage-preparatory,
+    middle: $stage-middle,
+    secondary: $stage-secondary,
+    seniorsec: $stage-seniorsec
+  )
+{
+  .grade-card-#{$name} {
+    border-top-color: $color;
+
+    .grade-icon {
+      background: $color;
+    }
+
+    .grade-tagline {
+      color: $color;
+    }
+
+    .grade-list li::before {
+      background: $color;
+    }
+  }
+}
+
+// A lone card would look stranded across the full shell, so it splits into a
+// heading rail and a two-column list instead.
+.grade-grid-single {
+  // doubled class so the 2-up .grade-grid breakpoints can't halve it
+  &.grade-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grade-card {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    // the list spans all three rows; letting the last row take the slack keeps
+    // the heading rail tight instead of spreading it down the card
+    grid-template-rows: auto auto 1fr;
+    // no row gap: the rail keeps the same icon/name/tagline spacing as the
+    // four-up cards above it
+    gap: 0 48px;
+    padding: 40px 44px 42px;
+  }
+
+  .grade-icon,
+  .grade-name,
+  .grade-tagline {
+    grid-column: 1;
+  }
+
+  .grade-tagline {
+    align-self: start;
+    margin-bottom: 0;
+  }
+
+  // a real grid rather than CSS columns, so bullets line up row for row
+  .grade-list {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 48px;
+
+    li + li {
+      margin-top: 0;
+    }
+  }
+}
+
+// ─── Parenting calendar ──────────────────────────────────────────────────────
+.calendar {
+  padding: 92px 0 40px;
+}
+
+.calendar-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.calendar-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 68px;
+  width: 68px;
+  height: 68px;
+  background: var(--color-amber);
+  border-radius: 18px;
+  color: var(--color-navy);
+  font-size: 32px;
+}
+
+.calendar-title {
+  font-size: 40px;
+}
+
+.calendar-sub {
+  max-width: 760px;
+  margin: 10px 0 0;
+  color: var(--color-navy);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.calendar-frame {
+  margin: 38px 0 0;
+  padding: 18px;
+  background: #f4f7fb;
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 22px;
+}
+
+.calendar-scroll {
+  overflow-x: auto;
+  border-radius: 14px;
+  background: var(--white);
+
+  img {
+    display: block;
+    width: 100%;
+    min-width: 900px;
+    height: auto;
+  }
+}
+
+.calendar-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 0 6px;
+  color: var(--color-navy);
+  font-size: 15px;
+}
+
+.calendar-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.7;
+}
+
+.calendar-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-navy);
+  font-weight: var(--fw-semibold);
+
+  &:hover {
+    color: #b9822a;
+  }
+}
+
+.calendar-footnote {
+  margin: 24px 0 0;
+  color: var(--color-navy);
+  font-size: 17px;
+  line-height: 1.5;
+
+  strong {
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// ─── Coping With Changes cross-link ──────────────────────────────────────────
+.stage-crosslink {
+  padding: 60px 0 0;
+}
+
+.crosslink-panel {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding: 44px 48px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+}
+
+.crosslink-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 86px;
+  width: 86px;
+  height: 86px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 42px;
+}
+
+.crosslink-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  p {
+    margin: 12px 0 0;
+    font-size: 17px;
+    line-height: 1.55;
+    opacity: 0.88;
+  }
+}
+
+.crosslink-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.crosslink-btn {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 16px 32px;
+  background: var(--color-amber);
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+
+  &:hover {
+    background: var(--color-gold);
+    color: var(--color-navy);
+    transform: translateY(-2px);
+  }
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────────────
+@media (max-width: 1599px) {
+  .need-layout {
+    grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+  }
+
+  .goals-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1399px) {
+  .stage-intro {
+    padding-top: 60px;
+  }
+
+  .stage-lead {
+    font-size: 18px;
+  }
+
+  .section-heading {
+    font-size: 36px;
+  }
+
+  .vp-title {
+    font-size: 38px;
+  }
+
+  .vp-photo {
+    flex-basis: 340px;
+  }
+
+  .vp-body {
+    gap: 44px;
+  }
+
+  .partner-heading,
+  .role-title {
+    font-size: 34px;
+  }
+
+  .calendar-title {
+    font-size: 34px;
+  }
+
+  .grade-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grade-grid-single .grade-card {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 20px 36px;
+  }
+
+  .need-layout {
+    grid-template-columns: minmax(0, 1fr) 260px minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .need-card {
+    padding: 30px 26px 34px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .stage-intro {
+    padding-top: 48px;
+  }
+
+  .stage-lead {
+    font-size: 17px;
+  }
+
+  .stage-switch {
+    margin-top: 34px;
+  }
+
+  .stage-tab {
+    padding: 12px 24px;
+
+    .stage-tab-icon {
+      width: 38px;
+      height: 38px;
+      font-size: 20px;
+    }
+
+    .stage-tab-name {
+      font-size: 17px;
+    }
+  }
+
+  .section-heading {
+    font-size: 30px;
+  }
+
+  .section-subheading {
+    font-size: 18px;
+  }
+
+  .section-lead-copy {
+    font-size: 17px;
+  }
+
+  .vp-message {
+    padding-top: 56px;
+  }
+
+  .vp-title {
+    font-size: 30px;
+  }
+
+  .vp-body {
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .vp-photo {
+    flex-basis: 280px;
+  }
+
+  .vp-caption strong {
+    font-size: 18px;
+  }
+
+  .vp-letter {
+    font-size: 16px;
+
+    .letter-sign {
+      margin-right: 28px;
+    }
+  }
+
+  .vp-letter-body {
+    padding-right: 28px;
+  }
+
+  .understanding,
+  .strategies,
+  .partner-table,
+  .role-shift {
+    padding-top: 64px;
+  }
+
+  .calendar {
+    padding-top: 68px;
+  }
+
+  .need-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 42px;
+  }
+
+  .need-media {
+    grid-column: 1 / -1;
+    order: 3;
+
+    img {
+      min-height: 0;
+      aspect-ratio: 16 / 7;
+    }
+  }
+
+  .need-name {
+    font-size: 22px;
+  }
+
+  .need-list li {
+    font-size: 16px;
+
+    svg {
+      font-size: 21px;
+    }
+  }
+
+  // 3-up is held to 991: at 2-up the third card is stranded on its own row
+  .journey-grid {
+    margin-top: 42px;
+  }
+
+  .journey-body {
+    padding: 0 24px 28px;
+  }
+
+  .journey-name {
+    font-size: 22px;
+  }
+
+  .role-panel,
+  .partner-panel {
+    padding: 52px 28px 56px;
+  }
+
+  .role-flow {
+    gap: 22px;
+    margin-top: 34px;
+  }
+
+  .role-steps li {
+    padding: 9px 16px;
+    font-size: 16px;
+  }
+
+  .role-arrow svg {
+    width: 44px !important;
+  }
+
+  .role-note {
+    font-size: 18px;
+  }
+
+  .partner-colhead,
+  .partner-row {
+    grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+  }
+
+  .partner-cell {
+    min-height: 66px;
+    padding: 14px 18px;
+    font-size: 16px;
+    gap: 12px;
+  }
+
+  .partner-icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+  }
+
+  .goals-title {
+    margin-top: 52px;
+    font-size: 25px;
+  }
+
+  .goals-grid {
+    gap: 20px;
+  }
+
+  .goal-item {
+    padding: 26px 22px 28px;
+  }
+
+  .stage-band {
+    margin: 56px 0 28px;
+  }
+
+  .stage-band-label {
+    padding: 9px 22px;
+    font-size: 14px;
+  }
+
+  .grade-card {
+    padding: 28px 24px 30px;
+  }
+
+  .grade-name {
+    font-size: 21px;
+  }
+
+  .grade-grid-single .grade-card {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 30px 26px 32px;
+  }
+
+  .grade-grid-single {
+    .grade-icon,
+    .grade-name,
+    .grade-tagline,
+    .grade-list {
+      grid-column: 1;
+    }
+
+    .grade-list {
+      grid-row: auto;
+      column-gap: 32px;
+      margin-top: 20px;
+    }
+  }
+
+  .calendar-badge {
+    flex-basis: 56px;
+    width: 56px;
+    height: 56px;
+    font-size: 26px;
+  }
+
+  .calendar-title {
+    font-size: 28px;
+  }
+
+  .calendar-sub {
+    font-size: 16px;
+  }
+
+  .crosslink-panel {
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 36px 30px;
+  }
+
+  .crosslink-icon {
+    flex-basis: 68px;
+    width: 68px;
+    height: 68px;
+    font-size: 34px;
+  }
+
+  .crosslink-title {
+    font-size: 26px;
+  }
+
+  .crosslink-copy p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .goals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vp-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vp-photo {
+    flex-basis: auto;
+    max-width: 340px;
+    margin-inline: auto;
+  }
+
+  // stacked: a nested scroll region here would just trap the page scroll
+  .vp-letter .letter-sign {
+    margin-right: 0;
+  }
+
+  .vp-letter-body {
+    flex-basis: auto;
+    padding-right: 0;
+    overflow: visible;
+    contain: none;
+  }
+
+  .journey-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .role-flow {
+    flex-direction: column;
+  }
+
+  .role-column {
+    width: 100%;
+    max-width: none;
+  }
+
+  .role-arrow svg {
+    width: 24px !important;
+    height: 44px !important;
+    transform: rotate(90deg);
+  }
+
+  .grade-grid-single .grade-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .stage-switch {
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .stage-tab {
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .need-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .goals-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grade-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // the paired cells stack, with the bridge rotated between them
+  .partner-colhead {
+    display: none;
+  }
+
+  .partner-colhead,
+  .partner-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .partner-row {
+    margin-top: 22px;
+  }
+
+  .partner-link {
+    justify-self: center;
+    width: 2px;
+    height: 26px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(5, 39, 84, 0.3) 0 6px,
+      transparent 6px 12px
+    );
+    background-size: 2px 12px;
+  }
+
+  .crosslink-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .calendar-note {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .calendar-hint {
+    justify-content: center;
+  }
+
+  .calendar-open {
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 20px;
+    background: var(--color-navy);
+    border-radius: 999px;
+    color: var(--white);
+
+    &:hover {
+      background: var(--color-navy-deep);
+      color: var(--white);
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .stage-intro {
+    padding-top: 36px;
+  }
+
+  .stage-lead {
+    font-size: 16px;
+  }
+
+  // side by side but stacked inside, so both tabs sit at the same height
+  // however "Balvatika - Class V" wraps
+  .stage-tab {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 8px;
+    text-align: center;
+
+    .stage-tab-text {
+      align-items: center;
+    }
+
+    .stage-tab-icon {
+      width: 34px;
+      height: 34px;
+      font-size: 18px;
+    }
+
+    .stage-tab-name {
+      font-size: 15px;
+    }
+
+    .stage-tab-meta {
+      font-size: 12px;
+    }
+  }
+
+  // the fixed counsellor tab bites into the right edge on phones
+  .stage-eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(100% - 92px);
+    margin-inline: auto;
+    font-size: 12px;
+    gap: 8px;
+
+    .stage-eyebrow-mark {
+      width: 26px;
+    }
+  }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  .section-subheading {
+    font-size: 16px;
+  }
+
+  .section-lead-copy {
+    font-size: 16px;
+  }
+
+  .vp-message {
+    padding-top: 40px;
+  }
+
+  .vp-title {
+    font-size: 24px;
+  }
+
+  .vp-quote-mark {
+    font-size: 32px;
+  }
+
+  .understanding,
+  .strategies,
+  .partner-table,
+  .role-shift {
+    padding-top: 46px;
+  }
+
+  .calendar {
+    padding-top: 50px;
+  }
+
+  .need-card {
+    padding: 26px 20px 28px;
+  }
+
+  .need-badge {
+    width: 52px;
+    height: 52px;
+    font-size: 25px;
+  }
+
+  .need-name {
+    font-size: 20px;
+  }
+
+  .journey-badge {
+    width: 54px;
+    height: 54px;
+    margin-top: -27px;
+    font-size: 24px;
+  }
+
+  .journey-name {
+    font-size: 20px;
+  }
+
+  .role-panel,
+  .partner-panel {
+    padding: 38px 18px 42px;
+    border-radius: 18px;
+  }
+
+  .role-title,
+  .partner-heading {
+    font-size: 24px;
+  }
+
+  .partner-tagline {
+    font-size: 17px;
+  }
+
+  .role-column {
+    padding: 22px 16px 26px;
+  }
+
+  .role-steps li {
+    font-size: 15px;
+  }
+
+  .role-note {
+    font-size: 16px;
+  }
+
+  .partner-cell {
+    padding: 13px 15px;
+    font-size: 15px;
+  }
+
+  .goals-title {
+    font-size: 21px;
+  }
+
+  .goal-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+
+  .goal-name {
+    font-size: 17px;
+  }
+
+  .stage-band {
+    gap: 12px;
+    margin: 42px 0 24px;
+  }
+
+  .stage-band-label {
+    padding: 8px 16px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .grade-card,
+  .grade-grid-single .grade-card {
+    padding: 24px 20px 26px;
+  }
+
+  .grade-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .grade-name {
+    font-size: 19px;
+  }
+
+  .grade-tagline {
+    font-size: 15px;
+  }
+
+  .grade-list li {
+    font-size: 15px;
+  }
+
+  .calendar-head {
+    gap: 16px;
+  }
+
+  .calendar-badge {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+    border-radius: 13px;
+  }
+
+  .calendar-title {
+    font-size: 23px;
+  }
+
+  .calendar-frame {
+    padding: 12px;
+  }
+
+  .calendar-scroll img {
+    min-width: 760px;
+  }
+
+  .calendar-note {
+    font-size: 13px;
+  }
+
+  .crosslink-panel {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .crosslink-title {
+    font-size: 22px;
+  }
+}

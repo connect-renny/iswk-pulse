@@ -1,0 +1,768 @@
+// ─── Inner page: Enrichment & Resources ──────────────────────────────────────
+// FS/PS keep the accents used on the Parenting Across Every Stage cards; MS and
+// SS take the blue and purple from that page's Secondary / Senior Secondary, so
+// the four stages read as one orange → green → blue → purple progression.
+$res-fs: #dd7a33;
+$res-ps: #3f9153;
+$res-ms: #4590d0;
+$res-ss: #7a52a3;
+
+$res-stages: (
+  fs: $res-fs,
+  ps: $res-ps,
+  ms: $res-ms,
+  ss: $res-ss,
+);
+
+// `.icon-sprite` and the line-icon defaults live in pages/_stages.scss; this
+// page reuses them, so only its own hosts need adding to that selector list.
+.bulletins-intro svg,
+.every-step svg,
+.stage-resources svg,
+.bulletin-library svg,
+.gallery-crosslink svg {
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// ─── Parent Connect Bulletins intro ──────────────────────────────────────────
+.bulletins-intro {
+  padding: 76px 0 0;
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.res-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+  color: #b9822a;
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  .res-eyebrow-mark {
+    width: 42px;
+    height: 3px;
+    background: var(--color-amber);
+    border-radius: 2px;
+  }
+}
+
+.bulletins-subtitle {
+  margin: 16px 0 0;
+  color: #b9822a;
+  font-size: 24px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+}
+
+.bulletins-lead {
+  max-width: 900px;
+  margin: 26px auto 0;
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.45;
+}
+
+.bulletins-intro .prose {
+  max-width: 1080px;
+  margin-inline: auto;
+  font-size: 18px;
+}
+
+// ─── A resource for every step ───────────────────────────────────────────────
+.every-step {
+  padding: 78px 0 0;
+}
+
+.step-panel {
+  padding: 66px 48px 62px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.step-title {
+  margin: 0;
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.step-text {
+  max-width: 1000px;
+  margin: 22px auto 0;
+  font-size: 19px;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+// the four verbs read as a sequence, so they get connectors rather than a grid
+.step-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 46px;
+}
+
+.step-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+
+  + .step-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -18px;
+    width: 18px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--color-amber);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 22px;
+}
+
+.step-name {
+  font-size: 21px;
+  font-weight: var(--fw-semibold);
+}
+
+.step-closing {
+  max-width: 900px;
+  margin: 44px auto 0;
+  font-size: 20px;
+  line-height: 1.5;
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// ─── Explore resources by stage ──────────────────────────────────────────────
+.stage-resources {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+// 2-up, not 4-up: the shell caps at 1320px, so a 4-across row would give each
+// of these long descriptions a ~300px column at every desktop width.
+.stage-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 52px;
+  text-align: left;
+}
+
+.stage-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 30px 28px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 20px;
+  border-top-width: 5px;
+  @include transEase(box-shadow);
+
+  &:hover {
+    box-shadow: 0 18px 40px rgba(5, 39, 84, 0.12);
+  }
+}
+
+.stage-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.stage-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 28px;
+}
+
+.stage-code {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+}
+
+.stage-card-name {
+  margin: 22px 0 0;
+  color: var(--color-navy);
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.stage-card-tagline {
+  margin: 7px 0 16px;
+  font-size: 17px;
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+.stage-card-text {
+  flex: 1 1 auto;
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 16px;
+  line-height: 1.55;
+  hyphens: auto;
+}
+
+.stage-card-foot,
+.bulletin-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(5, 39, 84, 0.16);
+}
+
+.stage-card-link,
+.bulletin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-navy);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+
+  i {
+    @include transEase(transform);
+  }
+
+  &:hover i {
+    transform: translateX(3px);
+  }
+}
+
+@each $key, $color in $res-stages {
+  .stage-card-#{$key} {
+    border-top-color: $color;
+
+    .stage-card-icon {
+      background: $color;
+    }
+
+    .stage-code {
+      background: rgba($color, 0.14);
+      color: $color;
+    }
+
+    .stage-card-tagline {
+      color: $color;
+    }
+
+    .stage-card-link:hover {
+      color: $color;
+    }
+  }
+
+  .bulletin-#{$key} .bulletin-tag {
+    background: $color;
+  }
+
+  .bulletin-#{$key} .bulletin-link:hover {
+    color: $color;
+  }
+
+  .filter-chip-#{$key}.is-active {
+    background: $color;
+    border-color: $color;
+  }
+}
+
+// ─── Like button ─────────────────────────────────────────────────────────────
+// Counts are per-browser only until the backend is wired up.
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
+  background: rgba(5, 39, 84, 0.06);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  cursor: pointer;
+
+  svg {
+    font-size: 19px;
+  }
+
+  &:hover {
+    background: rgba(5, 39, 84, 0.1);
+  }
+
+  &.is-liked {
+    background: rgba(238, 164, 3, 0.16);
+    border-color: var(--color-amber);
+    color: #b9822a;
+
+    svg {
+      fill: var(--color-amber);
+      stroke: #b9822a;
+    }
+  }
+}
+
+// ─── Bulletin library ────────────────────────────────────────────────────────
+.bulletin-library {
+  padding: 92px 0 0;
+}
+
+// ─── Gallery cross-link ──────────────────────────────────────────────────────
+// The gallery moved to its own page; `.crosslink-panel` and its responsive
+// rules live in pages/_stages.scss, so only the section host is needed here.
+.gallery-crosslink {
+  padding: 72px 0 40px;
+}
+
+.library-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: left;
+}
+
+.library-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 68px;
+  width: 68px;
+  height: 68px;
+  background: var(--color-amber);
+  border-radius: 18px;
+  color: var(--color-navy);
+  font-size: 32px;
+}
+
+.library-sub {
+  max-width: 760px;
+  margin: 10px 0 0;
+}
+
+.library-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.filter-chip {
+  padding: 11px 24px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.18);
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(5, 39, 84, 0.06);
+  }
+
+  &.is-active {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--white);
+  }
+}
+
+.bulletin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 34px;
+  text-align: left;
+}
+
+.bulletin-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  @include transEase(box-shadow);
+
+  &:hover {
+    box-shadow: 0 18px 40px rgba(5, 39, 84, 0.12);
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.bulletin-media {
+  position: relative;
+  margin: 0;
+  background: #eef2f8;
+  border-bottom: 1px solid rgba(5, 39, 84, 0.1);
+
+  // covers are portrait posters: show the masthead and headline, not the middle
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+// top-left keeps the chip clear of the placeholder's own caption, and reads
+// well once real covers replace it
+.bulletin-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+}
+
+.bulletin-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 22px 24px 20px;
+}
+
+.bulletin-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 0 0 10px;
+  color: rgba(5, 39, 84, 0.7);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+
+  span {
+    color: var(--color-navy);
+    font-weight: var(--fw-semibold);
+  }
+
+  time::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    margin-right: 10px;
+    background: currentColor;
+    border-radius: 50%;
+    vertical-align: middle;
+    opacity: 0.6;
+  }
+}
+
+.bulletin-name {
+  flex: 1 1 auto;
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 19px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.35;
+}
+
+.library-empty {
+  margin: 40px 0 0;
+  color: var(--color-navy);
+  font-size: 18px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .bulletins-subtitle {
+    font-size: 21px;
+  }
+
+  .bulletins-lead {
+    font-size: 20px;
+  }
+
+  .step-title {
+    font-size: 34px;
+  }
+
+  .stage-card-name {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .bulletins-intro {
+    padding-top: 56px;
+  }
+
+  .bulletins-subtitle {
+    font-size: 19px;
+  }
+
+  .bulletins-lead {
+    font-size: 18px;
+  }
+
+  .bulletins-intro .prose {
+    font-size: 17px;
+  }
+
+  .every-step,
+  .stage-resources {
+    padding-top: 64px;
+  }
+
+  .bulletin-library {
+    padding-top: 68px;
+  }
+
+  .gallery-crosslink {
+    padding-top: 56px;
+  }
+
+  .step-panel {
+    padding: 52px 28px 56px;
+  }
+
+  .step-title {
+    font-size: 28px;
+  }
+
+  .step-text {
+    font-size: 17px;
+  }
+
+  .step-item {
+    padding: 12px 22px;
+    gap: 11px;
+  }
+
+  .step-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+  }
+
+  .step-name {
+    font-size: 18px;
+  }
+
+  .step-closing {
+    font-size: 17px;
+  }
+
+  .bulletin-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stage-card {
+    padding: 26px 24px 24px;
+  }
+
+  .stage-card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .library-badge {
+    flex-basis: 56px;
+    width: 56px;
+    height: 56px;
+    font-size: 26px;
+  }
+
+  .bulletin-name {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 767px) {
+  .step-flow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .step-item {
+    justify-content: center;
+
+    + .step-item::before {
+      top: -14px;
+      left: 50%;
+      width: 1px;
+      height: 14px;
+    }
+  }
+
+  .stage-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bulletin-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  .bulletins-intro {
+    padding-top: 40px;
+  }
+
+  // the fixed counsellor tab bites into the right edge on phones
+  .res-eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(100% - 92px);
+    margin-inline: auto;
+    gap: 8px;
+    font-size: 12px;
+
+    .res-eyebrow-mark {
+      width: 26px;
+    }
+  }
+
+  .bulletins-subtitle {
+    font-size: 17px;
+  }
+
+  .bulletins-lead {
+    font-size: 16px;
+  }
+
+  .bulletins-intro .prose {
+    font-size: 16px;
+  }
+
+  .every-step,
+  .stage-resources {
+    padding-top: 46px;
+  }
+
+  .bulletin-library {
+    padding-top: 50px;
+  }
+
+  .gallery-crosslink {
+    padding-top: 44px;
+  }
+
+  .step-panel {
+    padding: 38px 18px 42px;
+    border-radius: 18px;
+  }
+
+  .step-title {
+    font-size: 24px;
+  }
+
+  .step-name {
+    font-size: 17px;
+  }
+
+  .step-closing {
+    font-size: 16px;
+  }
+
+  .stage-card-name {
+    font-size: 19px;
+  }
+
+  .stage-card-tagline {
+    font-size: 16px;
+  }
+
+  .library-head {
+    gap: 16px;
+  }
+
+  .library-badge {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+    border-radius: 13px;
+  }
+
+  .filter-chip {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+  .stage-card-foot,
+  .bulletin-foot {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .bulletin-name {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 479px) {
+  .bulletin-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

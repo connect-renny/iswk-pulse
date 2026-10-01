@@ -1,0 +1,659 @@
+// ─── Inner page: Parent Volunteer Engagement Programme ───────────────────────
+// The six contribution accents echo the client's own poster, and reuse the
+// home page's $partner-colors family so the site keeps one accent vocabulary.
+$contribute-colors: (#5ea13e, #f5b82b, #e16654, #1d9ba7, #4590d0, #7c67ad);
+
+// `.icon-sprite` and the line-icon defaults live in pages/_stages.scss; this
+// page only has to add its own hosts to that selector list.
+.vol-intro svg,
+.contribute svg,
+.inspiration svg,
+.volunteer-cta svg,
+.vol-closing svg {
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// ─── Programme introduction ──────────────────────────────────────────────────
+.vol-intro {
+  padding: 76px 0 0;
+  color: var(--color-navy);
+  text-align: center;
+
+  .page-title span {
+    display: block;
+  }
+}
+
+.vol-tagline {
+  margin: 18px 0 0;
+  color: #b9822a;
+  font-size: 26px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+// mirrors the navy callout box on the client's poster
+.vol-pledge {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 780px;
+  margin: 30px 0 0;
+  padding: 20px 32px;
+  background: var(--color-navy);
+  border-radius: 16px;
+  color: var(--white);
+  font-size: 19px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.vol-pledge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 27px;
+}
+
+.vol-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 52px;
+  margin-top: 56px;
+  text-align: left;
+}
+
+.vol-poster {
+  flex: 0 0 620px;
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(5, 39, 84, 0.12);
+    border-radius: 18px;
+  }
+
+  figcaption {
+    margin-top: 14px;
+    text-align: center;
+  }
+}
+
+.poster-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 22px;
+  background: rgba(5, 39, 84, 0.06);
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+
+  &:hover {
+    background: var(--color-navy);
+    color: var(--white);
+  }
+}
+
+.vol-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  hyphens: auto;
+
+  p {
+    margin: 0 0 20px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ─── How can you contribute? ─────────────────────────────────────────────────
+.contribute {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+.contribute-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 52px;
+  text-align: left;
+}
+
+.contribute-item {
+  padding: 32px 30px 34px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 20px;
+  @include transEase(transform);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  p {
+    margin: 12px 0 0;
+    color: var(--color-navy);
+    font-size: 16px;
+    line-height: 1.6;
+    hyphens: auto;
+  }
+}
+
+.contribute-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 30px;
+}
+
+.contribute-name {
+  margin: 20px 0 0;
+  color: var(--color-navy);
+  font-size: 21px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+
+@each $color in $contribute-colors {
+  .contribute-item:nth-child(#{index($contribute-colors, $color)}) {
+    .contribute-icon {
+      background: $color;
+    }
+
+    .contribute-name {
+      color: $color;
+    }
+  }
+}
+
+// ─── Your experience can become a child's inspiration ────────────────────────
+.inspiration {
+  padding: 88px 0 0;
+}
+
+.inspiration-panel {
+  padding: 66px 48px 62px;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.07) 0 14px,
+      transparent 14px 30px
+    ),
+    var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.inspiration-title {
+  margin: 0;
+  font-size: 42px;
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+
+  span {
+    display: block;
+    color: var(--color-gold);
+  }
+}
+
+.inspiration-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 44px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 26px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: var(--fw-medium);
+  }
+}
+
+.inspiration-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-amber);
+  border-radius: 50%;
+  color: var(--color-navy);
+  font-size: 21px;
+}
+
+.inspiration-closing {
+  max-width: 900px;
+  margin: 44px auto 0;
+  font-size: 21px;
+  line-height: 1.5;
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-semibold);
+  }
+}
+
+// ─── Become a parent volunteer ───────────────────────────────────────────────
+.volunteer-cta {
+  padding: 88px 0 0;
+  text-align: center;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 46px;
+  text-align: left;
+}
+
+.cta-card {
+  display: flex;
+  flex-direction: column;
+  padding: 38px 36px 36px;
+  background: var(--white);
+  border: 1px solid rgba(5, 39, 84, 0.12);
+  border-radius: 20px;
+
+  p {
+    flex: 1 1 auto;
+    margin: 14px 0 26px;
+    color: var(--color-navy);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+}
+
+.cta-card-primary {
+  background: rgba(238, 164, 3, 0.08);
+  border-color: rgba(238, 164, 3, 0.5);
+}
+
+.cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  background: var(--color-navy);
+  border-radius: 16px;
+  color: var(--color-amber);
+  font-size: 30px;
+}
+
+.cta-card-primary .cta-icon {
+  background: var(--color-amber);
+  color: var(--color-navy);
+}
+
+.cta-name {
+  margin: 22px 0 0;
+  color: var(--color-navy);
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 30px;
+  background: var(--color-amber);
+  border-radius: 999px;
+  color: var(--color-navy);
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  // long email addresses must not push the card wider than its column
+  word-break: break-word;
+
+  &:hover {
+    background: var(--color-gold);
+    color: var(--color-navy);
+    transform: translateY(-2px);
+  }
+}
+
+.cta-btn-ghost {
+  background: transparent;
+  border: 2px solid var(--color-navy);
+  color: var(--color-navy);
+
+  &:hover {
+    background: var(--color-navy);
+    color: var(--white);
+  }
+}
+
+// ─── Closing band ────────────────────────────────────────────────────────────
+.vol-closing {
+  padding: 88px 0 40px;
+}
+
+.closing-band {
+  padding: 58px 48px 62px;
+  background: var(--color-navy);
+  border-radius: 24px;
+  color: var(--white);
+  text-align: center;
+}
+
+.closing-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: var(--color-amber);
+  font-size: 36px;
+}
+
+.closing-strap {
+  margin: 26px 0 0;
+  font-size: 30px;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+
+  strong {
+    color: var(--color-gold);
+    font-weight: var(--fw-bold);
+  }
+}
+
+.closing-lines {
+  display: grid;
+  gap: 12px;
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  li {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────────────
+@media (max-width: 1399px) {
+  .vol-tagline {
+    font-size: 22px;
+  }
+
+  .vol-poster {
+    flex-basis: 500px;
+  }
+
+  .vol-block {
+    gap: 40px;
+  }
+
+  .inspiration-title,
+  .closing-strap {
+    font-size: 34px;
+  }
+
+  .closing-strap {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .vol-intro {
+    padding-top: 56px;
+  }
+
+  .vol-tagline {
+    font-size: 19px;
+  }
+
+  .vol-pledge {
+    gap: 14px;
+    padding: 16px 22px;
+    font-size: 17px;
+  }
+
+  .vol-pledge-icon {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+    font-size: 23px;
+  }
+
+  .vol-block {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+    margin-top: 42px;
+  }
+
+  .vol-poster {
+    flex-basis: auto;
+  }
+
+  .vol-copy {
+    font-size: 16px;
+  }
+
+  .contribute,
+  .inspiration,
+  .volunteer-cta,
+  .vol-closing {
+    padding-top: 64px;
+  }
+
+  // 3-up gets too narrow for these headings once the shell stops growing
+  .contribute-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contribute-item {
+    padding: 26px 24px 28px;
+  }
+
+  .contribute-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+  }
+
+  .contribute-name {
+    font-size: 19px;
+  }
+
+  .inspiration-panel,
+  .closing-band {
+    padding: 52px 28px 56px;
+  }
+
+  .inspiration-title {
+    font-size: 28px;
+  }
+
+  .inspiration-list {
+    gap: 12px;
+    margin-top: 34px;
+
+    li {
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+  }
+
+  .inspiration-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .inspiration-closing {
+    font-size: 18px;
+  }
+
+  .cta-card {
+    padding: 30px 26px 28px;
+  }
+
+  .cta-name {
+    font-size: 21px;
+  }
+
+  .cta-card p {
+    font-size: 16px;
+  }
+
+  .closing-icon {
+    width: 62px;
+    height: 62px;
+    font-size: 30px;
+  }
+
+  .closing-strap {
+    font-size: 22px;
+  }
+
+  .closing-lines li {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 991px) {
+  .cta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .contribute-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inspiration-list {
+    flex-direction: column;
+    align-items: stretch;
+
+    li {
+      justify-content: flex-start;
+    }
+  }
+
+  .cta-btn {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .vol-intro {
+    padding-top: 40px;
+  }
+
+  .vol-tagline {
+    font-size: 17px;
+  }
+
+  .vol-pledge {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 20px 22px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .vol-copy {
+    font-size: 15.5px;
+  }
+
+  .contribute,
+  .inspiration,
+  .volunteer-cta,
+  .vol-closing {
+    padding-top: 46px;
+  }
+
+  .inspiration-panel,
+  .closing-band {
+    padding: 36px 18px 40px;
+    border-radius: 18px;
+  }
+
+  .inspiration-title {
+    font-size: 23px;
+  }
+
+  .inspiration-list li {
+    padding: 11px 16px;
+    font-size: 15px;
+  }
+
+  .inspiration-closing {
+    font-size: 16px;
+  }
+
+  .contribute-name {
+    font-size: 18px;
+  }
+
+  .cta-name {
+    font-size: 19px;
+  }
+
+  .cta-btn {
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .closing-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+  }
+
+  .closing-strap {
+    font-size: 19px;
+  }
+
+  .closing-lines li {
+    font-size: 15.5px;
+  }
+}

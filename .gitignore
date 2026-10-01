@@ -1,0 +1,23 @@
+# OS / editor cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+
+# Python tooling (tools/)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Sass / node
+.sass-cache/
+node_modules/
+npm-debug.log*
+
+# Local scratch
+/tmp/
+*.bak
+*.orig
