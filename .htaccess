@@ -1,0 +1,9 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # The site moved from static .html pages to .php — keep old links working.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(index|our-parenting-journey|parenting-across-every-stage|enrichment-resources|parent-volunteer-programme|pulse-live-zone|gallery)\.html$ $1.php [R=301,L,NC]
+</IfModule>

@@ -1,7 +1,7 @@
 """Build the Gallery page from the client's photo/video drop.
 
-    python tools/gallery/build_gallery.py            # convert media + rewrite gallery.html
-    python tools/gallery/build_gallery.py --html     # rewrite gallery.html only
+    python tools/gallery/build_gallery.py            # convert media + rewrite gallery.php
+    python tools/gallery/build_gallery.py --html     # rewrite gallery.php only
 
 Every photo is re-encoded to a baseline JPG (HEIC/PNG included), turned upright
 from its EXIF orientation, stripped of metadata (GPS included) and saved twice:
@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]  # the HTML folder
 DOCS = ROOT.parent / "docs"
 IMG_OUT = ROOT / "assets" / "images" / "gallery"
 VID_OUT = ROOT / "assets" / "videos" / "gallery"
-PAGE = ROOT / "gallery.html"
+PAGE = ROOT / "gallery.php"
 
 FULL_EDGE, THUMB_EDGE = 1600, 800
 FULL_Q, THUMB_Q = 80, 74
@@ -44,7 +44,7 @@ STAGES = {
     "ss": "Senior Stage",
 }
 
-# event key -> filter label (the chips in gallery.html use the same keys)
+# event key -> filter label (the chips in gallery.php use the same keys)
 EVENTS = {
     "connect": "Parent Connect Hours",
     "mothers-day": "Mother's Day",
@@ -342,7 +342,7 @@ def main():
     items = interleave(items)
     write_page(items)
     n_v = sum(it["kind"] == "video" for it in items)
-    print(f"gallery.html: {len(items)} tiles ({len(items) - n_v} photos, {n_v} videos)")
+    print(f"gallery.php: {len(items)} tiles ({len(items) - n_v} photos, {n_v} videos)")
 
 
 if __name__ == "__main__":

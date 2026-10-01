@@ -1,188 +1,22 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="Gallery — Parent Connect Hours, Mother’s Day, the Sultan’s Feast and parent engagement sessions across every stage of the PULSE year."
-    />
-    <meta name="author" content="" />
-    <title>Gallery | PULSE</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+<?php
+require __DIR__ . '/includes/bootstrap.php';
 
-    <!-- Bootstrap Icon -->
-    <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet" />
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+$page = [
+    'title'       => 'Gallery | PULSE',
+    'description' => 'Gallery — Parent Connect Hours, Mother’s Day, the Sultan’s Feast and parent engagement sessions across every stage of the PULSE year.',
+    'nav'         => 'enrichment-resources',
+    'sprite'      => 'gallery',
+];
 
-    <link href="assets/css/swiper-bundle.css" rel="stylesheet" />
-    <link href="assets/css/aos.css" rel="stylesheet" />
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css?v=20260929d" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- ═══ Icon sprite ═══ -->
-    <svg class="icon-sprite" aria-hidden="true" focusable="false">
-      <defs>
-        <g id="i-images">
-          <rect x="3.2" y="5.6" width="17.6" height="13" rx="2" />
-          <circle cx="8.6" cy="10.4" r="1.6" />
-          <path d="M4 16.6l4.6-4.4 3.4 3.2 3-2.6 5 4.6" />
-        </g>
-      </defs>
-    </svg>
-
-    <!-- ═══ Header ═══ -->
-    <header class="header">
-      <div class="navbar-main">
-        <div class="header-inner">
-          <!-- Brand badge -->
-          <a class="navbar-brand" href="index.html">
-            <img src="assets/images/pulse-logo.png" alt="PULSE" />
-          </a>
-
-          <!-- Primary navigation -->
-          <nav class="navbar-nav" id="primaryNav" aria-label="Primary">
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a class="nav-link" href="our-parenting-journey.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-01.png" alt="" />
-                  </span>
-                  <span class="nav-label">Our Parenting <br />Journey</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="parenting-across-every-stage.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-02.png" alt="" />
-                  </span>
-                  <span class="nav-label"
-                    >Parenting <br />Across Every Stage</span
-                  >
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="enrichment-resources.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-03.png" alt="" />
-                  </span>
-                  <span class="nav-label"
-                    >Enrichment &amp; <br />Resources</span
-                  >
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="parent-volunteer-programme.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-04.png" alt="" />
-                  </span>
-                  <span class="nav-label"
-                    >Parent Volunteer <br />Programme</span
-                  >
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pulse-live-zone.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-05.png" alt="" />
-                  </span>
-                  <span class="nav-label">Pulse <br />Live ZOne</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <!-- Actions -->
-          <div class="header-actions">
-            <button
-              type="button"
-              class="btn-circle btn-circle-navy search-toggle"
-              aria-label="Search"
-              aria-controls="searchPanel"
-              aria-expanded="false"
-            >
-              <i class="bi bi-search" aria-hidden="true"></i>
-            </button>
-            <a
-              class="btn-circle btn-circle-gold"
-              href="index.html"
-              aria-label="Home"
-            >
-              <i class="bi bi-house-door-fill" aria-hidden="true"></i>
-            </a>
-            <button
-              type="button"
-              class="navbar-toggler"
-              aria-label="Toggle navigation"
-              aria-controls="primaryNav"
-              aria-expanded="false"
-            >
-              <span></span><span></span><span></span>
-            </button>
-          </div>
-        </div>
-
-        <!-- ═══ Search ═══ -->
-        <div class="search-panel" id="searchPanel" hidden>
-          <div class="page-shell">
-            <form class="search-form" role="search" action="#" method="get">
-              <label class="visually-hidden" for="siteSearch"
-                >Search PULSE</label
-              >
-              <i class="bi bi-search search-icon" aria-hidden="true"></i>
-              <input
-                class="search-input"
-                id="siteSearch"
-                type="search"
-                name="q"
-                placeholder="Search PULSE&hellip;"
-                autocomplete="off"
-              />
-              <button type="submit" class="search-submit">Search</button>
-              <button
-                type="button"
-                class="search-close"
-                aria-label="Close search"
-              >
-                <i class="bi bi-x-lg" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ═══ Mobile nav backdrop ═══ -->
-    <div class="nav-backdrop" hidden></div>
-
+require INCLUDES_PATH . '/header.php';
+?>
     <main>
       <!-- ═══ Hero banner ═══
            STAND-IN: reuses the Enrichment banner until the artwork for this
            page is supplied. -->
-      <section class="hero">
-        <div class="page-shell">
-          <div class="swiper swiper-banner">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <figure class="hero-slide">
-                  <img
-                    src="assets/images/hero-slider-parent.jpg"
-                    alt="Parents and children together"
-                  />
-                </figure>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section>
+      <?php component('hero', ['slides' => [
+        ['src' => 'assets/images/hero-slider-parent.jpg', 'alt' => 'Parents and children together'],
+      ]]); ?>
 
       <!-- ═══ Gallery ═══
            The tiles between the gallery:items markers are generated by
@@ -198,7 +32,7 @@
                 </svg>
               </span>
               <div>
-                <a class="gallery-back" href="enrichment-resources.html">
+                <a class="gallery-back" href="enrichment-resources.php">
                   <i class="bi bi-arrow-left" aria-hidden="true"></i>
                   Enrichment &amp; Resources
                 </a>
@@ -6758,109 +6592,6 @@
       </section>
     </main>
 
-    <!-- ═══ Lightbox ═══ -->
-    <div
-      class="lightbox"
-      id="galleryLightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Gallery viewer"
-      hidden
-    >
-      <div class="lightbox-backdrop" data-lightbox-close></div>
+<?php component('gallery-lightbox'); ?>
 
-      <button
-        type="button"
-        class="lightbox-btn lightbox-close"
-        data-lightbox-close
-        aria-label="Close the viewer"
-      >
-        <i class="bi bi-x-lg" aria-hidden="true"></i>
-      </button>
-
-      <button
-        type="button"
-        class="lightbox-btn lightbox-nav lightbox-prev"
-        data-lightbox-prev
-        aria-label="Previous"
-      >
-        <i class="bi bi-chevron-left" aria-hidden="true"></i>
-      </button>
-
-      <button
-        type="button"
-        class="lightbox-btn lightbox-nav lightbox-next"
-        data-lightbox-next
-        aria-label="Next"
-      >
-        <i class="bi bi-chevron-right" aria-hidden="true"></i>
-      </button>
-
-      <figure class="lightbox-figure">
-        <img class="lightbox-img" src="" alt="" />
-        <video
-          class="lightbox-img lightbox-video"
-          controls
-          playsinline
-          preload="none"
-          hidden
-        ></video>
-        <figcaption class="lightbox-caption">
-          <span class="lightbox-tag"></span>
-          <span class="lightbox-title"></span>
-          <span class="lightbox-count" aria-live="polite"></span>
-        </figcaption>
-      </figure>
-    </div>
-
-    <!-- ═══ Footer ═══ -->
-    <footer class="footer">
-      <div class="page-shell">
-        <div class="section-shell footer-inner">
-          <a class="footer-brand" href="index.html">
-            <img
-              src="assets/images/iswk-pulse-logo.png"
-              alt="Indian School Al Wadi Al Kabir"
-            />
-          </a>
-          <p class="footer-copy">
-            Copyright &copy; 2026-27 Indian School Al Wadi Al Kabir. All rights
-            reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- ═══ Ask the Counsellor ═══ -->
-    <!-- Hidden until the client confirms where this should link.
-    <a class="counsellor-tab" href="#ask-the-counsellor">
-      <span class="counsellor-badge">
-        <i class="bi bi-question-lg" aria-hidden="true"></i>
-      </span>
-      <span class="counsellor-label">Ask the Counsellor</span>
-    </a>
-    -->
-
-    <!-- ═══ Scroll to top ═══ -->
-    <button id="return-top" class="return-top" aria-label="Back to top">
-      <span><img src="assets/images/up-icon.svg" alt="" /></span>
-    </button>
-
-    <!-- jQuery -->
-    <script src="assets/js/jquery.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Swiper slider -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!-- Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <!-- Custom scroll -->
-    <script src="assets/js/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="assets/js/main.js?v=20260929"></script>
-    <script>
-      // AOS animation
-      AOS.init();
-    </script>
-  </body>
-</html>
+<?php require INCLUDES_PATH . '/footer.php'; ?>

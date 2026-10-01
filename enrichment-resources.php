@@ -1,249 +1,22 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="Parent Connect Bulletins — practical guidance for every stage of your child's journey, with curated resources for the Foundation, Preparatory, Middle and Senior stages."
-    />
-    <meta name="author" content="" />
-    <title>Enrichment &amp; Resources | PULSE</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+<?php
+require __DIR__ . '/includes/bootstrap.php';
 
-    <!-- Bootstrap Icon -->
-    <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet" />
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+$page = [
+    'title'       => 'Enrichment & Resources | PULSE',
+    'description' => 'Parent Connect Bulletins — practical guidance for every stage of your child\'s journey, with curated resources for the Foundation, Preparatory, Middle and Senior stages.',
+    'nav'         => 'enrichment-resources',
+    'sprite'      => 'enrichment-resources',
+];
 
-    <link href="assets/css/swiper-bundle.css" rel="stylesheet" />
-    <link href="assets/css/aos.css" rel="stylesheet" />
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css?v=20260929d" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- ═══ Icon sprite ═══ -->
-    <svg class="icon-sprite" aria-hidden="true" focusable="false">
-      <defs>
-        <g id="i-sprout">
-          <path d="M12 21v-8.2" />
-          <path d="M12 12.8C12 9.4 9.4 6.8 6 6.8c0 3.4 2.6 6 6 6z" />
-          <path d="M12 12.8c0-3.4 2.6-6 6-6 0 3.4-2.6 6-6 6z" />
-          <path d="M7.6 21h8.8" />
-        </g>
-        <g id="i-book">
-          <path
-            d="M3.6 5.2c2.8-1 5.6-1 8.4.8 2.8-1.8 5.6-1.8 8.4-.8v13c-2.8-1-5.6-1-8.4.8-2.8-1.8-5.6-1.8-8.4-.8z"
-          />
-          <path d="M12 6v13" />
-        </g>
-        <g id="i-globe">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M3.2 12h17.6" />
-          <path d="M12 3a14 14 0 010 18 14 14 0 010-18z" />
-        </g>
-        <g id="i-rocket">
-          <path
-            d="M12 2.8c3.4 2.4 5.2 6 5.2 10.2l-2 4.2h-6.4l-2-4.2C6.8 8.8 8.6 5.2 12 2.8z"
-          />
-          <circle cx="12" cy="10" r="2" />
-          <path
-            d="M9.2 17.6c-1.4 1-2 2.4-2 3.6 1.4 0 2.6-.5 3.6-1.4M14.8 17.6c1.4 1 2 2.4 2 3.6-1.4 0-2.6-.5-3.6-1.4"
-          />
-        </g>
-        <g id="i-bulb">
-          <path d="M9.4 17.6a6 6 0 115.2 0" />
-          <path d="M9.6 17.6h4.8M10.2 20.6h3.6" />
-        </g>
-        <g id="i-check-circle">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M8 12.2l2.8 2.8L16.2 9" />
-        </g>
-        <g id="i-handshake">
-          <path
-            d="M11.4 7.4L9 9.8a1.7 1.7 0 002.4 2.4l1.6-1.6 3.6 3.6a1.7 1.7 0 01-2.4 2.4"
-          />
-          <path d="M14.2 16.6a1.7 1.7 0 01-2.4 2.4l-.8-.8" />
-          <path d="M2.8 8.6l3-3 3.4 1 3-1.4 3 1.4 3.4-1 3 3" />
-          <path d="M2.8 8.6l3.4 3.4M21.2 8.6l-3.4 3.4" />
-        </g>
-        <g id="i-thumb">
-          <path
-            d="M7 10.4v9.2H4.2a1.2 1.2 0 01-1.2-1.2v-6.8a1.2 1.2 0 011.2-1.2z"
-          />
-          <path
-            d="M7 10.4l4.2-7.2a2 2 0 013 2.4l-1.2 4.4h5a2 2 0 011.94 2.5l-1.8 6.8a2 2 0 01-1.94 1.5H7z"
-          />
-        </g>
-        <g id="i-file-text">
-          <path
-            d="M13.6 3.4H7a1.8 1.8 0 00-1.8 1.8v13.6A1.8 1.8 0 007 20.6h10a1.8 1.8 0 001.8-1.8V8.6z"
-          />
-          <path d="M13.6 3.4v5.2h5.2" />
-          <path d="M8.6 13h6.8M8.6 16.4h4.6" />
-        </g>
-        <g id="i-images">
-          <rect x="3.2" y="5.6" width="17.6" height="13" rx="2" />
-          <circle cx="8.6" cy="10.4" r="1.6" />
-          <path d="M4 16.6l4.6-4.4 3.4 3.2 3-2.6 5 4.6" />
-        </g>
-      </defs>
-    </svg>
-
-    <!-- ═══ Header ═══ -->
-    <header class="header">
-      <div class="navbar-main">
-        <div class="header-inner">
-          <!-- Brand badge -->
-          <a class="navbar-brand" href="index.html">
-            <img src="assets/images/pulse-logo.png" alt="PULSE" />
-          </a>
-
-          <!-- Primary navigation -->
-          <nav class="navbar-nav" id="primaryNav" aria-label="Primary">
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a class="nav-link" href="our-parenting-journey.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-01.png" alt="" />
-                  </span>
-                  <span class="nav-label">Our Parenting <br />Journey</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="parenting-across-every-stage.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-02.png" alt="" />
-                  </span>
-                  <span class="nav-label"
-                    >Parenting <br />Across Every Stage</span
-                  >
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  href="enrichment-resources.html"
-                  aria-current="page"
-                >
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-03.png" alt="" />
-                  </span>
-                  <span class="nav-label"
-                    >Enrichment &amp; <br />Resources</span
-                  >
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="parent-volunteer-programme.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-04.png" alt="" />
-                  </span>
-                  <span class="nav-label"
-                    >Parent Volunteer <br />Programme</span
-                  >
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pulse-live-zone.html">
-                  <span class="nav-icon">
-                    <img src="assets/images/nav-icon-05.png" alt="" />
-                  </span>
-                  <span class="nav-label">Pulse <br />Live ZOne</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <!-- Actions -->
-          <div class="header-actions">
-            <button
-              type="button"
-              class="btn-circle btn-circle-navy search-toggle"
-              aria-label="Search"
-              aria-controls="searchPanel"
-              aria-expanded="false"
-            >
-              <i class="bi bi-search" aria-hidden="true"></i>
-            </button>
-            <a
-              class="btn-circle btn-circle-gold"
-              href="index.html"
-              aria-label="Home"
-            >
-              <i class="bi bi-house-door-fill" aria-hidden="true"></i>
-            </a>
-            <button
-              type="button"
-              class="navbar-toggler"
-              aria-label="Toggle navigation"
-              aria-controls="primaryNav"
-              aria-expanded="false"
-            >
-              <span></span><span></span><span></span>
-            </button>
-          </div>
-        </div>
-
-        <!-- ═══ Search ═══ -->
-        <div class="search-panel" id="searchPanel" hidden>
-          <div class="page-shell">
-            <form class="search-form" role="search" action="#" method="get">
-              <label class="visually-hidden" for="siteSearch"
-                >Search PULSE</label
-              >
-              <i class="bi bi-search search-icon" aria-hidden="true"></i>
-              <input
-                class="search-input"
-                id="siteSearch"
-                type="search"
-                name="q"
-                placeholder="Search PULSE&hellip;"
-                autocomplete="off"
-              />
-              <button type="submit" class="search-submit">Search</button>
-              <button
-                type="button"
-                class="search-close"
-                aria-label="Close search"
-              >
-                <i class="bi bi-x-lg" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ═══ Mobile nav backdrop ═══ -->
-    <div class="nav-backdrop" hidden></div>
-
+require INCLUDES_PATH . '/header.php';
+?>
     <main>
       <!-- ═══ Hero banner ═══
            STAND-IN: reuses the home page banner until the artwork for this
            page is supplied. -->
-      <section class="hero">
-        <div class="page-shell">
-          <div class="swiper swiper-banner">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <figure class="hero-slide">
-                  <img
-                    src="assets/images/hero-slider-enrichment-resources.jpg"
-                    alt="Parents and children together"
-                  />
-                </figure>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section>
+      <?php component('hero', ['slides' => [
+        ['src' => 'assets/images/hero-slider-enrichment-resources.jpg', 'alt' => 'Parents and children together'],
+      ]]); ?>
 
       <!-- ═══ Parent Connect Bulletins ═══ -->
       <section class="bulletins-intro" id="parent-connect-bulletins">
@@ -1257,83 +1030,19 @@
       </section>
 
       <!-- ═══ Gallery — cross link ═══ -->
-      <section class="gallery-crosslink" id="gallery-link">
-        <div class="page-shell">
-          <div class="section-shell">
-            <div class="crosslink-panel" data-aos="fade-up">
-              <span class="crosslink-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <use href="#i-images"></use>
-                </svg>
-              </span>
-              <div class="crosslink-copy">
-                <h2 class="crosslink-title">Gallery</h2>
-                <p>
-                  Moments from Parent Connect Hours, Mother&rsquo;s Day
+      <?php component('crosslink', [
+        'class' => 'gallery-crosslink',
+        'id'    => 'gallery-link',
+        'icon'  => 'i-images',
+        'title' => 'Gallery',
+        'body'  => 'Moments from Parent Connect Hours, Mother&rsquo;s Day
                   celebrations, the Sultan&rsquo;s Feast and parent engagement
                   sessions across the Foundation, Preparatory, Middle and Senior
                   stages &mdash; the everyday scenes that show what partnership
-                  looks like at Indian School Al Wadi Al Kabir.
-                </p>
-              </div>
-              <a class="crosslink-btn" href="gallery.html">
-                View the gallery
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+                  looks like at Indian School Al Wadi Al Kabir.',
+        'href'  => 'gallery.php',
+        'cta'   => 'View the gallery',
+      ]); ?>
     </main>
 
-    <!-- ═══ Footer ═══ -->
-    <footer class="footer">
-      <div class="page-shell">
-        <div class="section-shell footer-inner">
-          <a class="footer-brand" href="index.html">
-            <img
-              src="assets/images/iswk-pulse-logo.png"
-              alt="Indian School Al Wadi Al Kabir"
-            />
-          </a>
-          <p class="footer-copy">
-            Copyright &copy; 2026-27 Indian School Al Wadi Al Kabir. All rights
-            reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- ═══ Ask the Counsellor ═══ -->
-    <!-- Hidden until the client confirms where this should link.
-    <a class="counsellor-tab" href="#ask-the-counsellor">
-      <span class="counsellor-badge">
-        <i class="bi bi-question-lg" aria-hidden="true"></i>
-      </span>
-      <span class="counsellor-label">Ask the Counsellor</span>
-    </a>
-    -->
-
-    <!-- ═══ Scroll to top ═══ -->
-    <button id="return-top" class="return-top" aria-label="Back to top">
-      <span><img src="assets/images/up-icon.svg" alt="" /></span>
-    </button>
-
-    <!-- jQuery -->
-    <script src="assets/js/jquery.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Swiper slider -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!-- Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <!-- Custom scroll -->
-    <script src="assets/js/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="assets/js/main.js?v=20260929"></script>
-    <script>
-      // AOS animation
-      AOS.init();
-    </script>
-  </body>
-</html>
+<?php require INCLUDES_PATH . '/footer.php'; ?>

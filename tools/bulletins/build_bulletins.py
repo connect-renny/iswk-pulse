@@ -1,4 +1,4 @@
-"""Build the Bulletin Library on enrichment-resources.html from the client's drop.
+"""Build the Bulletin Library on enrichment-resources.php from the client's drop.
 
     python tools/bulletins/build_bulletins.py            # convert files + rewrite the page
     python tools/bulletins/build_bulletins.py --html     # rewrite the page only
@@ -7,7 +7,7 @@ Every bulletin is published as a PDF under assets/bulletins/ (the July issues
 arrived as PNG/JPG and are wrapped into a single-page PDF so "Read bulletin"
 behaves the same everywhere; the PDFs' embedded artwork is recompressed), and page 1 is rendered to a cover under
 assets/bulletins/covers/. The cards between the bulletins:items markers in
-enrichment-resources.html are regenerated from BULLETINS below, so add next
+enrichment-resources.php are regenerated from BULLETINS below, so add next
 month's issues there and re-run rather than hand-editing the markup.
 
 Needs: pip install pillow pymupdf
@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[2]  # the HTML folder
 SRC = ROOT.parent / "docs" / "30SEP2026" / "PARENT CONNECT BULLETIN" / "PARENT CONNECT BULLETIN"
 OUT = ROOT / "assets" / "bulletins"
 COVERS = OUT / "covers"
-PAGE = ROOT / "enrichment-resources.html"
+PAGE = ROOT / "enrichment-resources.php"
 
 COVER_W, COVER_H, COVER_Q = 640, 480, 80
 PDF_Q = 85
