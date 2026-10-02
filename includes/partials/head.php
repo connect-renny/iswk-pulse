@@ -21,5 +21,19 @@
     <link href="assets/css/aos.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css?v=<?= CSS_VERSION ?>" rel="stylesheet" />
+    <link href="<?= asset('assets/css/style.css') ?>" rel="stylesheet" />
+<?php if ($page['inauguration']): ?>
+
+    <!-- Inauguration curtain: show it unless this session has already seen it
+         (?launch=1 replays it). Runs before first paint so it never flashes. -->
+    <script>
+      try {
+        if (/[?&]launch=1(&|$)/.test(location.search) || !sessionStorage.getItem("pulse-launched")) {
+          document.documentElement.classList.add("is-launching");
+        }
+      } catch (e) {
+        document.documentElement.classList.add("is-launching");
+      }
+    </script>
+<?php endif; ?>
   </head>

@@ -5,9 +5,9 @@
 
 const SITE_NAME = 'PULSE';
 
-// Cache-busting versions — bump when the compiled CSS / main.js change.
-const CSS_VERSION = '20260929d';
-const JS_VERSION  = '20260929';
+// Launch-ceremony curtain on pages that set $page['inauguration'] (the home
+// page). Set to false to switch it off everywhere once the launch is over.
+const INAUGURATION_ENABLED = true;
 
 const DEFAULT_TITLE       = 'PULSE — Together, We Shape Tomorrow';
 const DEFAULT_DESCRIPTION = 'PULSE — Parenting Updates, Learning, Support & Engagement. Together, we shape tomorrow.';

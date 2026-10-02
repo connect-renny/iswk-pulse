@@ -9,8 +9,15 @@
     <!-- Custom scroll -->
     <script src="assets/js/aos.js"></script>
     <!-- Custom JS -->
-    <script src="assets/js/main.js?v=<?= JS_VERSION ?>"></script>
+    <script src="<?= asset('assets/js/main.js') ?>"></script>
     <script>
-      // AOS animation
-      AOS.init();
+      // AOS animation — on a launch visit, wait for the curtain to lift so the
+      // first screen animates in front of the visitor, not behind the curtain.
+      if (document.documentElement.classList.contains("is-launching")) {
+        document.addEventListener("pulse:launched", function () {
+          AOS.init();
+        });
+      } else {
+        AOS.init();
+      }
     </script>

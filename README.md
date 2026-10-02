@@ -21,11 +21,11 @@ Hand-built PHP + SCSS on Bootstrap 5. No framework or database: each page is a p
 ```
 includes/
   bootstrap.php   loaded first by every page (config + helpers)
-  config.php      site constants, CSS/JS cache-bust versions, navigation items
+  config.php      site constants, navigation items
   functions.php   e() escaping, component() renderer
-  header.php      common page opening: <head>, preloader, sprite, site header
+  header.php      common page opening: <head>, launch curtain, sprite, site header
   footer.php      common page closing: site footer, back-to-top, scripts
-  partials/       head, preloader, site-header, navigation, search,
+  partials/       head, inauguration, site-header, navigation, search,
                   site-footer, scripts
   components/     reusable sections: hero, crosslink, commitment-statement,
                   gallery-lightbox
@@ -68,7 +68,7 @@ $page = [
     'title'       => 'Gallery | PULSE',          // defaults to the home title
     'description' => '…',                        // defaults to the site description
     'nav'         => 'enrichment-resources',     // key in $NAV_ITEMS to highlight
-    'preloader'   => false,                      // logo preloader (home only)
+    'inauguration' => false,                     // launch curtain (home only)
     'sprite'      => 'gallery',                  // includes/sprites/gallery.php
 ];
 
@@ -87,7 +87,8 @@ require INCLUDES_PATH . '/header.php';
 - **Navigation** lives in `$NAV_ITEMS` (`includes/config.php`) — add or rename menu items there once.
 - **Components** take their content as props: `component('crosslink', [...])` — see the docblock at the top of each file in `includes/components/` for the props it expects.
 - **Icon sprites** stay per page because a few symbol ids (`i-speak`, `i-ear`) draw different icons on different pages. A `crosslink` icon must exist in that page's sprite.
-- Bump `CSS_VERSION` / `JS_VERSION` in `config.php` after rebuilding the CSS or editing `main.js`.
+- **Launch curtain** — the home page opens behind a theatre curtain with an *Enter Site* button; the curtains part, confetti fires and the site is revealed. It shows once per browser session; add `?launch=1` to the URL to replay it. Timings and confetti live in `LAUNCH` at the top of the curtain block in `assets/js/main.js`, the look in `scss/components/_inauguration.scss`, and `INAUGURATION_ENABLED` in `config.php` switches it off site-wide.
+- `style.css` and `main.js` are linked through `asset()`, which appends the file's modified time, so browsers fetch new copies automatically after a rebuild or edit — no version to bump.
 - `.htaccess` 301-redirects the old `*.html` URLs to `*.php` and blocks direct requests to `includes/`.
 
 ## Preview

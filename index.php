@@ -2,7 +2,7 @@
 require __DIR__ . '/includes/bootstrap.php';
 
 $page = [
-    'preloader'   => true,
+    'inauguration' => true,
 ];
 
 require INCLUDES_PATH . '/header.php';

@@ -9,6 +9,18 @@ function e(?string $value): string
     return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+/**
+ * Asset URL with a cache-busting version taken from the file's modified
+ * time, so browsers pick up a rebuilt style.css / edited main.js on their own.
+ *
+ *   asset('assets/css/style.css')  →  assets/css/style.css?v=1759316400
+ */
+function asset(string $path): string
+{
+    $mtime = @filemtime(dirname(INCLUDES_PATH) . '/' . $path);
+    return $mtime ? $path . '?v=' . $mtime : $path;
+}
+
 /** Basename of the script being served, e.g. "gallery.php". */
 function current_script(): string
 {

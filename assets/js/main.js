@@ -10,24 +10,216 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// Preloader
-window.addEventListener("load", function () {
-  setTimeout(function () {
-    var loaderOverlay = document.querySelector(".loader-overlay");
-    if (!loaderOverlay) {
-      return;
+// Inauguration curtain — the home page's launch ceremony.
+// Closed curtain → "Enter Site" → curtains gather to the sides → confetti →
+// the stage lifts and the site is revealed. head.php adds .is-launching to
+// <html> when the curtain should show (once per session, ?launch=1 replays);
+// tune the ceremony here. When the site is revealed, "pulse:launched" fires
+// on document.
+var LAUNCH = {
+  storageKey: "pulse-launched",
+  openDelay: 350, // ms from the click until the curtains start to part
+  openDuration: 1800, // ms for the curtains to gather to the sides
+  celebrate: 1400, // ms of confetti on the open stage before the reveal
+  revealDuration: 1800, // ms for the stage to fade and the drapes to clear
+  confetti: {
+    pieces: 240, // halved-ish on phones
+    colors: ["#e8a838", "#f7d58c", "#eea403", "#052754", "#ffffff", "#a81d2b"],
+  },
+};
+
+(function () {
+  var overlay = document.querySelector(".inauguration");
+  if (!overlay) {
+    return;
+  }
+
+  var root = document.documentElement;
+  if (!root.classList.contains("is-launching")) {
+    overlay.remove();
+    return;
+  }
+
+  var enter = overlay.querySelector(".inauguration-enter");
+  var canvas = overlay.querySelector(".inauguration-confetti");
+
+  overlay.style.setProperty("--launch-open-delay", LAUNCH.openDelay + "ms");
+  overlay.style.setProperty("--launch-open", LAUNCH.openDuration + "ms");
+  overlay.style.setProperty("--launch-reveal", LAUNCH.revealDuration + "ms");
+
+  lenis.stop();
+  enter.focus({ preventScroll: true });
+
+  // Keep keyboard focus on the button while the curtain is closed.
+  overlay.addEventListener("keydown", function (event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
     }
-    loaderOverlay.style.transition = "opacity 0.5s";
-    loaderOverlay.style.opacity = "0";
+  });
+
+  enter.addEventListener(
+    "click",
+    function () {
+      enter.disabled = true;
+      try {
+        sessionStorage.setItem(LAUNCH.storageKey, "1");
+      } catch (e) {}
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        reveal(600, true);
+        return;
+      }
+
+      overlay.classList.add("is-opening");
+      setTimeout(function () {
+        var confettiDone = false;
+        var revealDone = false;
+        launchConfetti(canvas, LAUNCH.confetti, function () {
+          confettiDone = true;
+          if (revealDone) overlay.remove();
+        });
+        setTimeout(function () {
+          reveal(LAUNCH.revealDuration, false, function () {
+            revealDone = true;
+            if (confettiDone) overlay.remove();
+          });
+        }, LAUNCH.celebrate);
+      }, LAUNCH.openDelay + LAUNCH.openDuration);
+    },
+    { once: true }
+  );
+
+  function reveal(duration, removeAfter, onDone) {
+    overlay.classList.add("is-revealed");
+    overlay.removeAttribute("aria-modal");
+    root.classList.remove("is-launching");
+    lenis.start();
+
+    var main = document.querySelector("main");
+    if (main) {
+      main.setAttribute("tabindex", "-1");
+      main.focus({ preventScroll: true });
+      main.addEventListener(
+        "blur",
+        function () {
+          main.removeAttribute("tabindex");
+        },
+        { once: true }
+      );
+    }
+    document.dispatchEvent(new CustomEvent("pulse:launched"));
 
     setTimeout(function () {
-      loaderOverlay.style.display = "none";
-      if (typeof swiperBanner !== "undefined" && swiperBanner.autoplay) {
-        swiperBanner.autoplay.start();
+      if (removeAfter) overlay.remove();
+      if (onDone) onDone();
+    }, duration);
+  }
+})();
+
+// Paper-cracker burst from both lower corners plus a shower from the top,
+// drawn on a canvas and stopped once every piece has fallen out of view.
+function launchConfetti(canvas, settings, onDone) {
+  var ctx = canvas.getContext("2d");
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var width, height;
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  var scale = Math.max(height / 900, 0.6);
+  var total = width < 768 ? Math.round(settings.pieces * 0.55) : settings.pieces;
+  var pieces = [];
+
+  function add(x, y, angle, speed) {
+    var shape = Math.random();
+    pieces.push({
+      x: x,
+      y: y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      w: (6 + Math.random() * 6) * (shape < 0.25 ? 0.45 : 1),
+      h: (shape < 0.25 ? 16 : 9) + Math.random() * 5,
+      round: shape > 0.8,
+      color: settings.colors[Math.floor(Math.random() * settings.colors.length)],
+      tilt: Math.random() * Math.PI * 2,
+      spin: (Math.random() - 0.5) * 0.25,
+      flip: Math.random() * Math.PI * 2,
+      flipSpeed: 0.08 + Math.random() * 0.12,
+    });
+  }
+
+  // Two corner crackers, aimed up and in toward the centre…
+  var burst = Math.round(total * 0.35);
+  for (var i = 0; i < burst; i++) {
+    var spread = (Math.random() - 0.5) * 0.6;
+    var speed = (15 + Math.random() * 12) * scale;
+    add(0, height, -Math.PI / 3 + spread, speed);
+    add(width, height, (-2 * Math.PI) / 3 + spread, speed);
+  }
+  // …and a lighter shower drifting down from above, staggered by height.
+  for (var j = burst * 2; j < total; j++) {
+    add(
+      Math.random() * width,
+      -20 - Math.random() * height * 0.6,
+      Math.PI / 2,
+      (1 + Math.random() * 2) * scale
+    );
+  }
+
+  var last = performance.now();
+  var started = last;
+  var maxTime = 7000;
+
+  function frame(now) {
+    var dt = Math.min((now - last) / 16.67, 3);
+    var elapsed = now - started;
+    last = now;
+    ctx.clearRect(0, 0, width, height);
+    ctx.globalAlpha = elapsed > maxTime - 800 ? Math.max((maxTime - elapsed) / 800, 0) : 1;
+
+    pieces = pieces.filter(function (p) {
+      p.vx *= Math.pow(0.985, dt);
+      p.vy = p.vy * Math.pow(0.985, dt) + 0.32 * scale * dt;
+      p.vy = Math.min(p.vy, 5 * scale); // paper floats, it doesn't plummet
+      p.x += (p.vx + Math.sin(p.flip) * 0.8) * dt;
+      p.y += p.vy * dt;
+      p.tilt += p.spin * dt;
+      p.flip += p.flipSpeed * dt;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.tilt);
+      ctx.scale(1, Math.cos(p.flip));
+      ctx.fillStyle = p.color;
+      if (p.round) {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
       }
-    }, 500); // Adjust the time for display:none to match your transition time
-  }, 2000); // Adjust the initial delay time
-});
+      ctx.restore();
+
+      return p.y < height + 30;
+    });
+
+    if (pieces.length && elapsed < maxTime) {
+      requestAnimationFrame(frame);
+    } else {
+      ctx.clearRect(0, 0, width, height);
+      window.removeEventListener("resize", resize);
+      onDone();
+    }
+  }
+  requestAnimationFrame(frame);
+}
 
 // Mobile nav toggle
 var navToggler = document.querySelector(".navbar-toggler");
